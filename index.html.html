@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Delaware Permit Prep 🚗💨</title>
+<style>
+:root{
+  --ink:#1b1b2f; --ink-soft:#5a5a72; --paper:#fffdf5;
+  --red:#e63946; --orange:#ff9f1c; --yellow:#ffd93d; --green:#4ecb71;
+  --teal:#3ddad7; --blue:#5b8def; --purple:#a78bfa; --pink:#ff7eb6;
+  --line:rgba(91,141,239,.15);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  color:var(--ink); background-color:var(--paper);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:26px 26px; min-height:100vh; line-height:1.5;
+  -webkit-text-size-adjust:100%;
+}
+.hand{font-family:"Comic Sans MS","Chalkboard SE","Segoe Print","Bradley Hand",cursive}
+.wrap{max-width:900px;margin:0 auto;padding:16px 14px 100px}
+.screen{display:none;animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
+.screen.active{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:none}}
+
+.card{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:16px 16px 18px;box-shadow:5px 5px 0 var(--ink);margin-bottom:16px;position:relative}
+.tape{position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);width:100px;height:24px;background:rgba(255,217,61,.8);border-left:2px dashed rgba(0,0,0,.1);border-right:2px dashed rgba(0,0,0,.1);border-radius:3px;pointer-events:none}
+h1,h2,h3{font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;margin:0 0 10px;line-height:1.2}
+h1{font-size:clamp(1.5rem,5vw,2rem)}
+h2{font-size:clamp(1.2rem,4vw,1.5rem)}
+h3{font-size:1.08rem}
+p{margin:0 0 11px}
+.small{font-size:.85rem;color:var(--ink-soft)}
+.center{text-align:center}
+.hl{background:linear-gradient(180deg,transparent 52%,var(--yellow) 52%);padding:0 3px;border-radius:3px}
+.hl-pink{background:linear-gradient(180deg,transparent 52%,var(--pink) 52%);padding:0 3px;border-radius:3px}
+
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;font-size:1rem;font-weight:700;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:12px 18px;box-shadow:4px 4px 0 var(--ink);transition:transform .08s,box-shadow .08s;width:100%;margin-bottom:11px}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.primary{background:var(--yellow)} .btn.green{background:var(--green)}
+.btn.pink{background:var(--pink)} .btn.blue{background:var(--blue)}
+.btn.purple{background:var(--purple)} .btn.teal{background:var(--teal)}
+.btn.ghost{background:#fff;box-shadow:4px 4px 0 #d8d2c2;border-color:#d8d2c2}
+.btn.tiny{width:auto;font-size:.82rem;padding:7px 13px;margin:0 5px 6px 0;box-shadow:3px 3px 0 var(--ink)}
+.row{display:flex;gap:9px;flex-wrap:wrap}
+
+/* name screen */
+.hero{text-align:center;padding:24px 8px 4px}
+.hero .bignote{display:inline-block;background:var(--yellow);border:3px solid var(--ink);border-radius:16px;padding:14px 20px;transform:rotate(-2deg);box-shadow:6px 6px 0 var(--ink);margin-bottom:18px}
+input[type=text]{width:100%;font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;font-size:1.15rem;padding:13px 15px;border:3px solid var(--ink);border-radius:14px;background:#fff;outline:none;box-shadow:inset 3px 3px 0 rgba(0,0,0,.05)}
+input[type=text]:focus{background:#fffbe6}
+label{display:block;font-weight:700;margin-bottom:7px;font-size:.93rem}
+
+/* header */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px}
+.who{font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;font-size:.95rem;background:var(--teal);border:3px solid var(--ink);border-radius:99px;padding:5px 14px;box-shadow:3px 3px 0 var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
+
+/* meter */
+.meterbox{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:14px;box-shadow:5px 5px 0 var(--ink);margin-bottom:16px}
+.meterhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;gap:10px}
+.meternum{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:1.9rem;line-height:1}
+.meter{height:24px;background:#efe9da;border:3px solid var(--ink);border-radius:99px;overflow:hidden}
+.meterfill{height:100%;width:0;transition:width .9s cubic-bezier(.2,.8,.2,1);background:linear-gradient(90deg,#e63946,#ff9f1c,#ffd93d,#4ecb71,#3ddad7);background-size:500% 100%}
+.metermsg{margin-top:9px;font-weight:700;font-size:.94rem}
+
+/* modules */
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){.mods{grid-template-columns:1fr}}
+.mod{border:3px solid var(--ink);border-radius:16px;padding:13px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;background:#fff;display:flex;gap:11px;align-items:flex-start;text-align:left;transition:transform .08s,box-shadow .08s;width:100%}
+.mod:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.mod .ico{font-size:1.6rem;line-height:1}
+.mod .ttl{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-weight:700;font-size:.98rem;margin-bottom:2px}
+.mod .blurb{font-size:.78rem;color:var(--ink-soft);line-height:1.32}
+.mod .done{font-size:.68rem;font-weight:700;margin-top:5px;display:inline-block;background:#e7ffe9;border:2px solid var(--ink);border-radius:99px;padding:1px 8px}
+
+/* flashcards */
+.flash{border:3px solid var(--ink);border-radius:20px;background:#fff;box-shadow:7px 7px 0 var(--ink);padding:22px 18px;min-height:250px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;transition:background .2s;position:relative}
+.flash.back{background:#f4fffb}
+.flashtag{position:absolute;top:10px;left:14px;font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--ink-soft)}
+.flashq{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:clamp(1.1rem,4vw,1.4rem);text-align:center;margin:12px 0}
+.flasha{font-size:1rem;margin-bottom:12px}
+.trick{background:var(--yellow);border:2px dashed var(--ink);border-radius:12px;padding:9px 13px;font-weight:700;font-size:.9rem}
+.tapme{text-align:center;font-size:.82rem;color:var(--ink-soft);margin-top:12px}
+
+/* quiz */
+.qprog{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.qbar{flex:1;height:15px;background:#efe9da;border:3px solid var(--ink);border-radius:99px;overflow:hidden}
+.qbarfill{height:100%;width:0;background:var(--teal);transition:width .3s}
+.streak{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:.85rem;background:var(--orange);border:2px solid var(--ink);border-radius:99px;padding:2px 11px;white-space:nowrap}
+.qtext{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:clamp(1.05rem,3.6vw,1.2rem);margin-bottom:14px}
+.choice{display:block;width:100%;text-align:left;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:12px 15px;margin-bottom:9px;font-size:.97rem;box-shadow:4px 4px 0 var(--ink);transition:transform .07s,box-shadow .07s}
+.choice:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.choice.correct{background:var(--green)} .choice.wrong{background:var(--red);color:#fff} .choice.dim{opacity:.4}
+.feedback{border:3px solid var(--ink);border-radius:14px;padding:13px;margin-top:5px;background:#fff;box-shadow:4px 4px 0 var(--ink)}
+.feedback.good{background:#e7ffe9} .feedback.bad{background:#ffe9ec}
+.fbhead{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:1.05rem;margin-bottom:5px}
+
+/* results */
+.bigscore{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:3.6rem;line-height:1;text-align:center;margin:5px 0}
+.stamp{display:inline-block;border:4px solid var(--red);color:var(--red);font-family:"Comic Sans MS","Chalkboard SE",cursive;font-weight:700;font-size:1.05rem;padding:5px 16px;border-radius:10px;transform:rotate(-6deg);margin-top:6px}
+.stamp.good{border-color:#22a06b;color:#22a06b}
+
+/* sign library */
+.cats{display:flex;gap:7px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-family:"Comic Sans MS","Chalkboard SE",cursive;font-size:.82rem;font-weight:700;border:3px solid var(--ink);border-radius:99px;padding:7px 14px;background:#fff;box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+.chip.on{background:var(--yellow)}
+.siggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:11px}
+.sigcard{border:3px solid var(--ink);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--ink);padding:8px;cursor:pointer;transition:transform .08s,box-shadow .08s;text-align:center}
+.sigcard:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.sigbox{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:3px}
+.sigbox svg{width:100%;height:100%;display:block}
+.signame{font-size:.7rem;font-weight:700;line-height:1.2;margin-top:5px;font-family:"Comic Sans MS","Chalkboard SE",cursive}
+.signsvg{width:100%;height:100%;display:block}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(27,27,47,.65);display:none;align-items:flex-start;justify-content:center;padding:14px;z-index:99;overflow-y:auto}
+.modal.on{display:flex}
+.modalcard{background:var(--paper);border:3px solid var(--ink);border-radius:20px;box-shadow:7px 7px 0 var(--ink);max-width:560px;width:100%;padding:18px;margin:auto;animation:pop .25s}
+.bigsign{width:190px;height:190px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
+.bigsign svg{width:100%;height:100%}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border:2px solid var(--ink);border-radius:99px;padding:2px 10px;background:var(--yellow);margin-bottom:9px}
+
+/* scenes */
+.scenecard{border:3px solid var(--ink);border-radius:16px;background:#fff;box-shadow:4px 4px 0 var(--ink);padding:11px;margin-bottom:13px;cursor:pointer;transition:transform .08s,box-shadow .08s}
+.scenecard:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.scenecard svg{width:100%;height:auto;display:block;border-radius:10px}
+.scenetitle{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-weight:700;font-size:1rem;margin-top:8px}
+.sceneblurb{font-size:.82rem;color:var(--ink-soft)}
+#sceneStage svg{width:100%;height:auto;display:block;border-radius:12px;border:3px solid var(--ink);background:#dff3d8}
+.keypoint{background:#fff;border:2px solid var(--ink);border-radius:11px;padding:8px 12px;margin-bottom:7px;font-size:.9rem}
+.keypoint b{font-family:"Comic Sans MS","Chalkboard SE",cursive}
+
+.divider{height:3px;background:var(--ink);border-radius:99px;opacity:.1;margin:18px 0}
+.footer{text-align:center;font-size:.76rem;color:var(--ink-soft);padding:8px 0 0}
+.pill{display:inline-block;background:#fff;border:2px solid var(--ink);border-radius:99px;padding:2px 11px;font-size:.75rem;font-weight:700;margin:0 5px 6px 0}
+.voicetoggle{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;margin-bottom:11px}
+.voicetoggle input{width:auto;transform:scale(1.25);accent-color:var(--blue)}
+.replaybtn{background:var(--purple)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============ NAME ============ -->
+<section id="scr-name" class="screen active">
+  <div class="hero">
+    <div class="bignote">
+      <h1 class="hand">Delaware Permit Prep 🚗💨</h1>
+      <p class="small" style="margin:4px 0 0">Signs • Signals • Rules • Scenes — all offline</p>
+    </div>
+  </div>
+  <div class="card">
+    <span class="tape"></span>
+    <label for="nameInput">✏️ First — what should I call you?</label>
+    <input type="text" id="nameInput" placeholder="Type your name..." autocomplete="off" maxlength="24">
+    <p class="small" style="margin-top:9px">Stays on this device. Nothing is uploaded.</p>
+    <button class="btn primary" id="startBtn" style="margin-top:5px">Let's Go! 🚀</button>
+  </div>
+  <div class="card" style="background:#fffbe6">
+    <h3>🎯 What you're aiming for</h3>
+    <p>Delaware's knowledge test has two parts: the <span class="hl">Highway Sign &amp; Signal Test</span> and the <span class="hl">Rules of the Road Test</span>. It's usually about <b>36 questions</b>, and you need roughly <b>28 right</b> to pass.</p>
+    <p class="small">Double-check current numbers with Delaware DMV — they can change.</p>
+  </div>
+</section>
+
+<!-- ============ HOME ============ -->
+<section id="scr-home" class="screen">
+  <div class="topbar">
+    <div class="who" id="whoLabel">👋 Hey!</div>
+    <button class="btn tiny ghost" id="resetBtn">Reset</button>
+  </div>
+
+  <div class="meterbox">
+    <div class="meterhead">
+      <div>
+        <div class="small" style="font-weight:700">YOUR CHANCE OF PASSING</div>
+        <div class="meternum" id="meterNum">—</div>
+      </div>
+      <div class="small" id="meterCount" style="text-align:right"></div>
+    </div>
+    <div class="meter"><div class="meterfill" id="meterFill"></div></div>
+    <div class="metermsg" id="meterMsg">Answer at least 5 questions and I'll start guessing. 🎲</div>
+  </div>
+
+  <div class="row">
+    <button class="btn primary" id="quiz10Btn" style="flex:1;min-width:180px">⚡ Quick Quiz (10)</button>
+    <button class="btn green" id="quiz36Btn" style="flex:1;min-width:180px">📝 Full Test (36)</button>
+  </div>
+  <div class="row">
+    <button class="btn pink" id="reviewBtn" style="flex:1;min-width:180px">🔁 Review Mistakes</button>
+    <button class="btn blue" id="allCardsBtn" style="flex:1;min-width:180px">🗂️ Random Cards</button>
+  </div>
+  <div class="row">
+    <button class="btn teal" id="signLibBtn" style="flex:1;min-width:180px">🚸 Sign Library</button>
+    <button class="btn purple" id="sceneBtn" style="flex:1;min-width:180px">🎬 Animated Scenes</button>
+  </div>
+
+  <div class="divider"></div>
+  <h2 class="hand">📚 Study by topic</h2>
+  <p class="small">Tap a topic, flip the cards, then quiz yourself.</p>
+  <div class="mods" id="modGrid"></div>
+  <div class="footer">Built from the Delaware Driver Manual. Driving is a privilege, not a right. 🛣️</div>
+</section>
+
+<!-- ============ SIGN LIBRARY ============ -->
+<section id="scr-signs" class="screen">
+  <div class="topbar">
+    <button class="btn tiny ghost" id="signsBack">← Back</button>
+    <div class="who" id="signsTitle">🚸 Sign Library</div>
+  </div>
+  <div class="voicetoggle">
+    <input type="checkbox" id="autoSpeak"><label for="autoSpeak" style="margin:0;font-weight:700">🔊 Auto-read signs aloud</label>
+  </div>
+  <div class="cats" id="catBar"></div>
+  <div class="siggrid" id="sigGrid"></div>
+  <div class="divider"></div>
+  <button class="btn purple" id="signQuizBtn">✏️ Quiz me on these signs</button>
+</section>
+
+<!-- ============ SCENES ============ -->
+<section id="scr-scenes" class="screen">
+  <div class="topbar">
+    <button class="btn tiny ghost" id="scenesBack">← Back</button>
+    <div class="who">🎬 Animated Scenes</div>
+  </div>
+  <p class="small">Tap a scene to watch it move. Every scene is drawn right here — no internet needed.</p>
+  <div id="sceneList"></div>
+</section>
+
+<!-- ============ MODULE ============ -->
+<section id="scr-module" class="screen">
+  <div class="topbar">
+    <button class="btn tiny ghost" id="modBack">← Back</button>
+    <div class="who" id="modTitle">Topic</div>
+  </div>
+  <div class="flash" id="flashEl">
+    <div class="flashtag" id="flashTag">CARD 1</div>
+    <div id="flashBody"></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <button class="btn tiny ghost" id="prevCard" style="flex:1">← Prev</button>
+    <button class="btn tiny blue" id="speakCard" style="flex:1">🔊 Read</button>
+    <button class="btn tiny ghost" id="nextCard" style="flex:1">Next →</button>
+  </div>
+  <div class="row" style="margin-top:6px">
+    <button class="btn tiny" id="gotIt" style="flex:1;background:var(--green)">👍 Got it</button>
+    <button class="btn tiny" id="needIt" style="flex:1;background:var(--pink)">🤔 Practice</button>
+  </div>
+  <button class="btn purple" id="modQuizBtn" style="margin-top:13px">✏️ Quiz me on this topic</button>
+  <div class="footer" id="modProgress"></div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="scr-quiz" class="screen">
+  <div class="topbar">
+    <button class="btn tiny ghost" id="quitQuiz">✕ Quit</button>
+    <div class="who" id="quizLabel">Quiz</div>
+  </div>
+  <div class="qprog">
+    <div class="qbar"><div class="qbarfill" id="qbarfill"></div></div>
+    <div class="streak" id="streakEl">🔥 0</div>
+  </div>
+  <div class="card">
+    <div class="qtext" id="qtext">Question</div>
+    <div id="choices"></div>
+    <div id="feedback"></div>
+    <button class="btn primary" id="nextQ" style="display:none;margin-top:13px">Next →</button>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="scr-results" class="screen">
+  <div class="card center">
+    <span class="tape"></span>
+    <h2 class="hand" id="resTitle">Nice work!</h2>
+    <div class="bigscore" id="resScore">0%</div>
+    <div id="resStamp"></div>
+    <p class="small" id="resDetail" style="margin-top:14px"></p>
+  </div>
+  <div class="meterbox">
+    <div class="meterhead">
+      <div>
+        <div class="small" style="font-weight:700">UPDATED CHANCE OF PASSING</div>
+        <div class="meternum" id="resMeterNum">—</div>
+      </div>
+    </div>
+    <div class="meter"><div class="meterfill" id="resMeterFill"></div></div>
+    <div class="metermsg" id="resMeterMsg"></div>
+  </div>
+  <button class="btn primary" id="againBtn">🔁 Quiz me again</button>
+  <button class="btn pink" id="resReviewBtn">📖 Review what I missed</button>
+  <button class="btn ghost" id="homeBtn">🏠 Back home</button>
+</section>
+
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal">
+  <div class="modalcard" id="modalCard"></div>
+</div>
+
+<script>
+/* =========================================================================
+   0. TINY HELPERS
+   ========================================================================= */
+const $ = id => document.getElementById(id);
+let _uid = 0;
+const uid = () => 'u' + (++_uid);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* Arrow path with auto-orienting arrowhead (perfect for any angle) */
+function arrowPath(d, color, w, size){
+  color = color || '#111'; w = w || 12; size = size || 18;
+  const id = uid();
+  return '<defs><marker id="'+id+'" markerUnits="userSpaceOnUse" markerWidth="'+size+'" markerHeight="'+size+
+    '" refX="'+(size*0.72)+'" refY="'+(size/2)+'" orient="auto"><path d="M0,0 L'+size+','+(size/2)+' L0,'+size+' Z" fill="'+color+'"/></marker></defs>'+
+    '<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#'+id+')"/>';
+}
+
+/* Standard SVG wrapper */
+function S(inner, vb){ return '<svg viewBox="'+(vb||'0 0 200 200')+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>'; }
+
+/* Diamond warning base */
+const DIA = '<polygon points="100,6 194,100 100,194 6,100" fill="#ffd93d" stroke="#111" stroke-width="5"/>';
+function WARN(inner){ return S(DIA + inner); }
+
+/* Prohibition (red circle + slash) */
+function NO(inner){
+  return S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#fff" stroke="#111" stroke-width="5"/>'+inner+
+    '<circle cx="100" cy="100" r="74" fill="none" stroke="#e63946" stroke-width="15"/>'+
+    '<line x1="47" y1="47" x2="153" y2="153" stroke="#e63946" stroke-width="15" stroke-linecap="round"/>');
+}
+
+/* Rectangular regulatory */
+function REG(inner, stroke){
+  return S('<rect x="6" y="6" width="188" height="188" rx="10" fill="#fff" stroke="'+(stroke||'#111')+'" stroke-width="5"/>'+inner);
+}
+
+/* Top-down road background for pavement markings */
+function ROAD(inner){
+  return S('<rect x="0" y="0" width="200" height="200" fill="#8a8f98"/>'+
+    '<rect x="0" y="0" width="200" height="200" fill="none"/>'+ inner, '0 0 200 200');
+}
+
+const TXT = (x,y,s,size,fill,weight,anchor,family) =>
+  '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="'+(family||'Arial,Helvetica,sans-serif')+
+  '" font-size="'+size+'" font-weight="'+(weight||700)+'" fill="'+(fill||'#111')+'">'+s+'</text>';
+
+/* =========================================================================
+   1. SIGN LIBRARY  —  all inline SVG, all offline
+   ========================================================================= */
+const SIGN_CATS = [
+  {id:'regulatory', name:'Regulatory',  emoji:'⛔', color:'#e63946'},
+  {id:'warning',    name:'Warning',     emoji:'⚠️', color:'#ffd93d'},
+  {id:'school',     name:'School',      emoji:'🏫', color:'#9acd32'},
+  {id:'railroad',   name:'Railroad',    emoji:'🚂', color:'#b07d3a'},
+  {id:'guide',      name:'Guide',       emoji:'🧭', color:'#2f9e44'},
+  {id:'signals',    name:'Signals',     emoji:'🚦', color:'#5b8def'},
+  {id:'pavement',   name:'Pavement',    emoji:'🎨', color:'#a78bfa'},
+  {id:'special',    name:'Special',     emoji:'🚧', color:'#ff9f1c'}
+];
+
+const SIGNS = [];
+
+/* ---------- REGULATORY ---------- */
+SIGNS.push({id:'stop', cat:'regulatory', name:'Stop', short:'STOP',
+ meaning:'Come to a complete stop at the stop line, or before the crosswalk, or before entering the intersection. Then yield to vehicles and pedestrians before you go.',
+ trick:'8 sides = STOP. No other sign on the road has 8 sides.',
+ svg:()=>S('<polygon points="63,9 137,9 191,63 191,137 137,191 63,191 9,137 9,63" fill="#e63946" stroke="#fff" stroke-width="7"/>'+TXT(100,120,'STOP',48,'#fff',900))});
+
+SIGNS.push({id:'yield', cat:'regulatory', name:'Yield', short:'YIELD',
+ meaning:'Slow down, look left and right, and yield the right-of-way to any vehicle or pedestrian in or approaching the intersection. Stop if you need to.',
+ trick:'The downward triangle is the only sign with this shape. Slow down, look, yield.',
+ svg:()=>S('<polygon points="8,28 192,28 100,188" fill="#e63946" stroke="#fff" stroke-width="6"/><polygon points="32,47 168,47 100,158" fill="#fff"/>'+TXT(100,92,'YIELD',28,'#e63946',900))});
+
+SIGNS.push({id:'speed50', cat:'regulatory', name:'Speed Limit 50', short:'SPEED LIMIT',
+ meaning:'The legal maximum speed for this stretch of road is 50 mph in ideal conditions. In rain, fog, ice, or heavy traffic you must slow down below it.',
+ trick:'White rectangle, black letters = the law. Yellow = only a recommendation.',
+ svg:()=>S('<rect x="38" y="8" width="124" height="184" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+TXT(100,58,'SPEED',23)+TXT(100,86,'LIMIT',23)+TXT(100,164,'50',70,'#111',900))});
+
+SIGNS.push({id:'speed25', cat:'regulatory', name:'Speed Limit 25', short:'25 MPH',
+ meaning:'25 mph is the limit in business districts and residential districts.',
+ trick:'Downtown and neighborhoods = 25.',
+ svg:()=>S('<rect x="38" y="8" width="124" height="184" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+TXT(100,58,'SPEED',23)+TXT(100,86,'LIMIT',23)+TXT(100,164,'25',70,'#111',900))});
+
+SIGNS.push({id:'doNotEnter', cat:'regulatory', name:'Do Not Enter', short:'DO NOT ENTER',
+ meaning:'You must not enter the street or ramp so marked. It may be a one-way street going the other way, or all traffic may be prohibited.',
+ trick:'Red circle with a white bar = a brick wall you cannot pass.',
+ svg:()=>S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   '<circle cx="100" cy="100" r="78" fill="#e63946"/>'+
+   '<text x="100" y="58" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="24" font-weight="900" fill="#fff">DO NOT</text>'+
+   '<rect x="34" y="86" width="132" height="28" fill="#fff"/>'+
+   '<text x="100" y="170" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="24" font-weight="900" fill="#fff">ENTER</text>')});
+
+SIGNS.push({id:'wrongWay', cat:'regulatory', name:'Wrong Way', short:'WRONG WAY',
+ meaning:'You are about to enter a one-way road going the wrong direction. Stop and turn around immediately.',
+ trick:'If you see WRONG WAY, something went very wrong. Turn around.',
+ svg:()=>S('<rect x="10" y="68" width="180" height="64" fill="#e63946" stroke="#fff" stroke-width="5"/>'+TXT(100,110,'WRONG WAY',25,'#fff',900))});
+
+SIGNS.push({id:'noLeft', cat:'regulatory', name:'No Left Turn', short:'NO LEFT',
+ meaning:'Left turns are prohibited at this location.',
+ trick:'Red circle + slash over the arrow = that move is forbidden.',
+ svg:()=>NO(arrowPath('M132 156 L132 98 L78 98','#111',20,22))});
+
+SIGNS.push({id:'noRight', cat:'regulatory', name:'No Right Turn', short:'NO RIGHT',
+ meaning:'Right turns are prohibited at this location.',
+ trick:'The slash cancels the arrow. No exceptions.',
+ svg:()=>NO(arrowPath('M68 156 L68 98 L122 98','#111',20,22))});
+
+SIGNS.push({id:'noUturn', cat:'regulatory', name:'No U-Turn', short:'NO U-TURN',
+ meaning:'U-turns are prohibited at this location.',
+ trick:'A U-turn arrow with a slash means "find another way around."',
+ svg:()=>NO('<path d="M78 158 L78 100 A22 22 0 0 1 122 100 L122 152" stroke="#111" stroke-width="19" fill="none" stroke-linecap="round"/>'+
+   '<polygon points="122,176 102,142 142,142" fill="#111"/>')});
+
+SIGNS.push({id:'oneWay', cat:'regulatory', name:'One Way', short:'ONE WAY',
+ meaning:'Traffic on this street flows in only one direction — the direction the arrow points.',
+ trick:'Black rectangle + white arrow = one direction only.',
+ svg:()=>S('<rect x="10" y="72" width="180" height="56" fill="#111"/>'+TXT(80,107,'ONE WAY',20,'#fff',900)+
+   '<polygon points="128,84 180,100 128,116" fill="#fff"/>')});
+
+SIGNS.push({id:'noParking', cat:'regulatory', name:'No Parking Any Time', short:'NO PARKING',
+ meaning:'You may not stop, stand, or park where this sign is posted — at any time.',
+ trick:'Four words on a white sign with red letters = do not even think about it.',
+ svg:()=>S('<rect x="42" y="6" width="116" height="188" rx="8" fill="#fff" stroke="#e63946" stroke-width="5"/>'+
+   TXT(100,44,'NO',20,'#e63946',900)+TXT(100,74,'PARKING',20,'#e63946',900)+
+   TXT(100,104,'STOPPING',19,'#e63946',900)+TXT(100,134,'STANDING',19,'#e63946',900)+
+   TXT(100,164,'ANY TIME',19,'#e63946',900))});
+
+SIGNS.push({id:'doNotPass', cat:'regulatory', name:'Do Not Pass', short:'DO NOT PASS',
+ meaning:'You may not pass other vehicles in this area. Also watch for double solid yellow lines on the pavement.',
+ trick:'Short, square, and clear. No passing here.',
+ svg:()=>S('<rect x="56" y="6" width="88" height="188" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   TXT(100,70,'DO',26)+TXT(100,106,'NOT',26)+TXT(100,142,'PASS',24))});
+
+SIGNS.push({id:'keepRight', cat:'regulatory', name:'Keep Right', short:'KEEP RIGHT',
+ meaning:'Keep to the right of the traffic island, divider, or obstruction.',
+ trick:'The arrow bends right around the barrier. Follow it.',
+ svg:()=>REG(arrowPath('M70 168 L70 112 Q70 78 106 78 L140 78','#111',18,20))});
+
+SIGNS.push({id:'leftLaneLeft', cat:'regulatory', name:'Left Lane Must Turn Left', short:'LEFT LANE',
+ meaning:'If you are in the left lane, you must turn left. Do not continue straight.',
+ trick:'"Must" means must. Change lanes early if you want to go straight.',
+ svg:()=>S('<rect x="10" y="14" width="180" height="172" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   TXT(100,62,'LEFT LANE',26)+TXT(100,102,'MUST',26)+TXT(100,142,'TURN LEFT',24))});
+
+SIGNS.push({id:'noTurnRed', cat:'regulatory', name:'No Turn on Red', short:'NO TURN ON RED',
+ meaning:'You must wait for the signal to turn green before turning. No right turn on red here.',
+ trick:'Red ball at the bottom = the red light stops you here.',
+ svg:()=>S('<rect x="46" y="6" width="108" height="188" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   TXT(100,50,'NO',26)+TXT(100,86,'TURN',26)+TXT(100,122,'ON RED',22)+
+   '<circle cx="100" cy="160" r="21" fill="#e63946"/>')});
+
+SIGNS.push({id:'handicap', cat:'regulatory', name:'Reserved Parking', short:'HANDICAP',
+ meaning:'Parking is reserved for vehicles displaying a handicapped license plate or a handicapped parking ID card. It is illegal to park here otherwise.',
+ trick:'Blue wheelchair + green "RESERVED" = only with a permit.',
+ svg:()=>S('<rect x="36" y="6" width="128" height="188" rx="8" fill="#fff" stroke="#2f9e44" stroke-width="5"/>'+
+   TXT(100,42,'RESERVED',20,'#2f9e44',900)+TXT(100,68,'PARKING',20,'#2f9e44',900)+
+   '<rect x="64" y="86" width="72" height="72" rx="10" fill="#1b4f9c"/>'+
+   '<circle cx="102" cy="106" r="8" fill="#fff"/>'+
+   '<path d="M102 118 v20 h14 l8 14" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<circle cx="104" cy="140" r="18" fill="none" stroke="#fff" stroke-width="7"/>'+
+   TXT(100,182,'RESERVED',11,'#2f9e44',700))});
+
+SIGNS.push({id:'minimumSpeed', cat:'regulatory', name:'Minimum Speed', short:'MIN SPEED',
+ meaning:'You may not drive slower than this speed unless conditions make it unsafe. Driving too slowly impedes traffic.',
+ trick:'A floor, not a ceiling. Too slow is also dangerous.',
+ svg:()=>S('<rect x="38" y="8" width="124" height="184" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   TXT(100,56,'MINIMUM',18)+TXT(100,84,'SPEED',23)+TXT(100,164,'40',70))});
+
+SIGNS.push({id:'noTrucks', cat:'regulatory', name:'No Trucks', short:'NO TRUCKS',
+ meaning:'Trucks are prohibited from this route.',
+ trick:'Silhouette + slash = that vehicle type is not allowed.',
+ svg:()=>NO('<rect x="52" y="96" width="40" height="34" rx="3" fill="#111"/>'+
+   '<path d="M92 104 h26 l14 18 v8 h-40 z" fill="#111"/>'+
+   '<circle cx="68" cy="136" r="9" fill="#111"/><circle cx="120" cy="136" r="9" fill="#111"/>')});
+
+/* ---------- WARNING ---------- */
+SIGNS.push({id:'sharpRight', cat:'warning', name:'Sharp Turn Right', short:'SHARP RIGHT',
+ meaning:'A sharp turn to the right is ahead. Reduce your speed BEFORE the turn — braking inside a curve can make you skid.',
+ trick:'Sharp = slow way down first.',
+ svg:()=>WARN(arrowPath('M90 148 L90 110 L142 110','#111',14,17))});
+
+SIGNS.push({id:'curveRight', cat:'warning', name:'Curve Right', short:'CURVE',
+ meaning:'The road curves to the right ahead. Slow down before you enter the curve.',
+ trick:'Gentle curve = gentle slowdown, but slow down early.',
+ svg:()=>WARN(arrowPath('M90 150 Q90 108 142 104','#111',14,17))});
+
+SIGNS.push({id:'winding', cat:'warning', name:'Winding Road', short:'WINDING',
+ meaning:'The road winds left and right ahead. Adjust your speed and stay in your lane.',
+ trick:'Squiggly arrow = the road won\'t stay straight.',
+ svg:()=>WARN(arrowPath('M100 158 Q74 132 100 110 Q126 88 100 62','#111',13,16))});
+
+SIGNS.push({id:'bump', cat:'warning', name:'Bump', short:'BUMP',
+ meaning:'There is a bump in the road ahead. Adjust your speed to avoid losing control.',
+ trick:'Hump shape = slow down or you\'ll feel it.',
+ svg:()=>WARN('<path d="M56 124 Q100 86 144 124" stroke="#111" stroke-width="14" fill="none" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'yieldAhead', cat:'warning', name:'Yield Ahead', short:'YIELD AHEAD',
+ meaning:'A yield sign is ahead. Slow down and be prepared to stop at the yield sign or adjust your speed to traffic.',
+ trick:'Up arrow + small yield triangle = get ready to yield.',
+ svg:()=>WARN('<polygon points="100,40 84,66 116,66" fill="#111"/><rect x="94" y="62" width="12" height="10" fill="#111"/>'+
+   '<polygon points="64,152 136,152 100,82" fill="#fff" stroke="#e63946" stroke-width="7"/>')});
+
+SIGNS.push({id:'dividedBegins', cat:'warning', name:'Divided Highway Begins', short:'DIVIDED',
+ meaning:'A divided highway begins ahead. Keep to the right of the median or divider.',
+ trick:'Two arrows splitting = a median is about to appear.',
+ svg:()=>WARN(arrowPath('M88 158 L88 120 L68 96','#111',12,16)+arrowPath('M112 158 L112 120 L132 96','#111',12,16))});
+
+SIGNS.push({id:'dividedEnds', cat:'warning', name:'Divided Highway Ends', short:'DIVIDED ENDS',
+ meaning:'The divided highway ends ahead. Two-way traffic will resume — keep right and watch for oncoming vehicles.',
+ trick:'Arrows coming back together = the median is going away.',
+ svg:()=>WARN(arrowPath('M70 96 L88 124 L88 158','#111',12,16)+arrowPath('M130 96 L112 124 L112 158','#111',12,16))});
+
+SIGNS.push({id:'steepHill', cat:'warning', name:'Steep Hill', short:'STEEP HILL',
+ meaning:'A steep hill is ahead. Slow down and shift to a lower gear to control your speed and save your brakes.',
+ trick:'Truck on a slope = downshift, don\'t ride the brakes.',
+ svg:()=>WARN('<path d="M40 150 L96 150 L160 96" stroke="#111" stroke-width="8" fill="none" stroke-linejoin="round"/>'+
+   '<rect x="62" y="120" width="30" height="20" rx="3" fill="#111"/>'+
+   '<rect x="92" y="118" width="18" height="22" rx="2" fill="#111"/>'+
+   '<circle cx="74" cy="146" r="7" fill="#111"/><circle cx="102" cy="146" r="7" fill="#111"/>')});
+
+SIGNS.push({id:'oneLaneBridge', cat:'warning', name:'One Lane Bridge', short:'1-LANE BRIDGE',
+ meaning:'The bridge ahead has room for only one lane of traffic. Slow down and be prepared to yield to oncoming vehicles.',
+ trick:'Narrow bridge = take turns. Don\'t be the one who guesses wrong.',
+ svg:()=>WARN('<rect x="46" y="112" width="108" height="14" rx="3" fill="#111"/>'+
+   '<path d="M46 112 L46 92 M154 112 L154 92" stroke="#111" stroke-width="7"/>'+
+   '<path d="M52 92 Q100 60 148 92" stroke="#111" stroke-width="7" fill="none"/>'+
+   TXT(100,152,'ONE LANE',15)+TXT(100,170,'BRIDGE',15))});
+
+SIGNS.push({id:'reducedSpeed', cat:'warning', name:'Reduced Speed Ahead', short:'REDUCED SPEED',
+ meaning:'The speed limit is about to drop. Start slowing down now.',
+ trick:'Diamond + small speed sign = the limit changes soon.',
+ svg:()=>WARN('<polygon points="100,36 82,62 118,62" fill="#111"/><rect x="93" y="58" width="14" height="8" fill="#111"/>'+
+   '<rect x="62" y="82" width="76" height="70" rx="5" fill="#fff" stroke="#111" stroke-width="4"/>'+
+   TXT(100,104,'SPEED',13)+TXT(100,118,'LIMIT',13)+TXT(100,144,'35',26))});
+
+SIGNS.push({id:'merge', cat:'warning', name:'Merging Traffic', short:'MERGE',
+ meaning:'Traffic is merging from the right just ahead. Watch for vehicles entering your lane and adjust your speed.',
+ trick:'Side arrow joining = someone wants in.',
+ svg:()=>WARN(arrowPath('M100 158 L100 76','#111',13,16)+arrowPath('M140 150 Q140 118 108 106','#111',13,16))});
+
+SIGNS.push({id:'bicycle', cat:'warning', name:'Bicycle Warning', short:'BIKES',
+ meaning:'Watch left and right for bicyclists. Used on roads shared with bicycles. Leave at least 3 feet when passing.',
+ trick:'Bike shape = share the road, 3 feet minimum.',
+ svg:()=>WARN('<circle cx="70" cy="126" r="20" fill="none" stroke="#111" stroke-width="6"/>'+
+   '<circle cx="136" cy="126" r="20" fill="none" stroke="#111" stroke-width="6"/>'+
+   '<path d="M70 126 L92 96 L120 96 L136 126 M92 96 L104 126 M84 84 L100 84" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'slippery', cat:'warning', name:'Slippery When Wet', short:'SLIPPERY',
+ meaning:'The roadway is slippery when wet. The first half hour of rain is the most hazardous. Slow down.',
+ trick:'Car with wavy skid marks = rain makes this road dangerous.',
+ svg:()=>WARN('<rect x="66" y="66" width="68" height="34" rx="6" fill="#111"/>'+
+   '<path d="M74 108 q-12 14 2 26 q12 12 0 24" stroke="#111" stroke-width="6" fill="none"/>'+
+   '<path d="M126 108 q12 14 -2 26 q-12 12 0 24" stroke="#111" stroke-width="6" fill="none"/>')});
+
+SIGNS.push({id:'laneEnds', cat:'warning', name:'Lane Ends / Merge Left', short:'LANE ENDS',
+ meaning:'The right lane ends ahead. Merge left when it is safe.',
+ trick:'One lane disappearing = merge, don\'t race to the end.',
+ svg:()=>WARN('<path d="M120 156 L120 116 Q120 92 100 84 Q80 76 80 60" stroke="#111" stroke-width="11" fill="none"/>'+
+   '<path d="M84 152 L84 120" stroke="#111" stroke-width="11" stroke-dasharray="14 12"/>')});
+
+SIGNS.push({id:'sideRoadRight', cat:'warning', name:'Side Road Entering Right', short:'SIDE ROAD',
+ meaning:'A side road enters the highway from the right just ahead. Watch for vehicles pulling out.',
+ trick:'T shape on the right = someone could pull out in front of you.',
+ svg:()=>WARN('<path d="M76 160 L76 60" stroke="#111" stroke-width="14" stroke-linecap="round"/>'+
+   '<path d="M76 108 L146 108" stroke="#111" stroke-width="14" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'signalAhead', cat:'warning', name:'Traffic Signal Ahead', short:'SIGNAL AHEAD',
+ meaning:'A traffic signal is ahead. Be prepared to stop.',
+ trick:'Mini traffic light = get ready to stop.',
+ svg:()=>WARN('<rect x="76" y="46" width="48" height="106" rx="10" fill="#111"/>'+
+   '<circle cx="100" cy="70" r="13" fill="#e63946"/><circle cx="100" cy="100" r="13" fill="#ffd93d"/><circle cx="100" cy="130" r="13" fill="#4ecb71"/>')});
+
+SIGNS.push({id:'roadNarrows', cat:'warning', name:'Road Narrows', short:'NARROWS',
+ meaning:'The roadway narrows ahead. Slow down and stay in your lane.',
+ trick:'Two lines pinching in = less room for everybody.',
+ svg:()=>WARN('<path d="M64 156 L64 118 L84 92 L84 56" stroke="#111" stroke-width="8" fill="none"/>'+
+   '<path d="M136 156 L136 118 L116 92 L116 56" stroke="#111" stroke-width="8" fill="none"/>')});
+
+SIGNS.push({id:'pavementEnds', cat:'warning', name:'Pavement Ends', short:'PAVEMENT ENDS',
+ meaning:'The paved road ends ahead. The road surface will change — slow down and check your vehicle control.',
+ trick:'Hard surface → soft surface. Slow down.',
+ svg:()=>WARN(TXT(100,96,'PAVEMENT',17)+TXT(100,120,'ENDS',17))});
+
+SIGNS.push({id:'twoWay', cat:'warning', name:'Two-Way Traffic', short:'2-WAY',
+ meaning:'One-way traffic ends and two-way traffic begins. Be alert for oncoming vehicles.',
+ trick:'Up arrow and down arrow together = they\'re coming at you.',
+ svg:()=>WARN(arrowPath('M76 156 L76 54','#111',13,16)+arrowPath('M124 54 L124 156','#111',13,16))});
+
+SIGNS.push({id:'tIntersection', cat:'warning', name:'T-Intersection', short:'T-INTERSECTION',
+ meaning:'A road ends at a T-intersection ahead. Be alert for cross traffic and regulatory signs or signals.',
+ trick:'T shape = you have to turn or cross.',
+ svg:()=>WARN('<path d="M52 96 L148 96 M100 96 L100 162" stroke="#111" stroke-width="15" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'crossroad', cat:'warning', name:'Crossroad', short:'CROSSROAD',
+ meaning:'Another road crosses the highway ahead. Be alert for cross traffic and regulatory signs or signals.',
+ trick:'Plus shape = traffic can come from either side.',
+ svg:()=>WARN('<path d="M100 50 L100 156 M44 104 L156 104" stroke="#111" stroke-width="15" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'roundaboutAhead', cat:'warning', name:'Roundabout Ahead', short:'ROUNDABOUT',
+ meaning:'A roundabout is ahead. Reduce speed and yield to pedestrians and vehicles already in the circle.',
+ trick:'Three curved arrows chasing each other = a circle is coming.',
+ svg:()=>WARN('<path d="M100 60 A42 42 0 0 1 142 102" stroke="#111" stroke-width="10" fill="none" marker-end="url(#ra1)"/>'+
+   '<defs><marker id="ra1" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="11" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 Z" fill="#111"/></marker></defs>'+
+   '<path d="M142 102 A42 42 0 0 1 100 144" stroke="#111" stroke-width="10" fill="none" marker-end="url(#ra2)"/>'+
+   '<defs><marker id="ra2" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="11" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 Z" fill="#111"/></marker></defs>'+
+   '<path d="M100 144 A42 42 0 0 1 58 102" stroke="#111" stroke-width="10" fill="none" marker-end="url(#ra3)"/>'+
+   '<defs><marker id="ra3" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="11" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 Z" fill="#111"/></marker></defs>')});
+
+SIGNS.push({id:'stopAhead', cat:'warning', name:'Stop Sign Ahead', short:'STOP AHEAD',
+ meaning:'A stop sign is ahead. Slow down and prepare to stop.',
+ trick:'Small red octagon inside the diamond = stop coming up.',
+ svg:()=>WARN('<polygon points="100,36 84,60 116,60" fill="#111"/>'+
+   '<polygon points="72,152 88,124 112,124 128,152 112,176 88,176" fill="#e63946" stroke="#fff" stroke-width="4"/>')});
+
+SIGNS.push({id:'farm', cat:'warning', name:'Farm Machinery', short:'FARM',
+ meaning:'Farm machinery may be on the road. Be alert and prepare to slow down.',
+ trick:'Tractor shape = slow vehicle ahead.',
+ svg:()=>WARN('<circle cx="86" cy="140" r="22" fill="none" stroke="#111" stroke-width="8"/>'+
+   '<circle cx="134" cy="148" r="14" fill="none" stroke="#111" stroke-width="7"/>'+
+   '<rect x="76" y="82" width="52" height="34" rx="4" fill="#111"/>'+
+   '<path d="M96 82 L96 62 L120 62" stroke="#111" stroke-width="7" fill="none"/>')});
+
+SIGNS.push({id:'horse', cat:'warning', name:'Horse-Drawn Vehicle', short:'HORSE',
+ meaning:'Horse-drawn vehicles share this road. Be alert and prepare to slow down.',
+ trick:'Horse and buggy = slow down and give lots of room.',
+ svg:()=>WARN('<path d="M52 128 q10 -22 30 -18 l16 4 l10 -14 l8 10 l-4 12 l14 10" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/>'+
+   '<circle cx="58" cy="142" r="6" fill="#111"/>'+
+   '<rect x="108" y="118" width="44" height="26" rx="4" fill="#111"/>'+
+   '<circle cx="118" cy="150" r="8" fill="#111"/><circle cx="146" cy="150" r="8" fill="#111"/>')});
+
+SIGNS.push({id:'deer', cat:'warning', name:'Deer Crossing', short:'DEER',
+ meaning:'Deer cross here. Be alert for deer on BOTH sides of the road, especially at dawn and dusk.',
+ trick:'Deer travel in groups. If you see one, more are coming.',
+ svg:()=>WARN('<path d="M78 156 l6 -26 l-10 -16 l6 -18 l10 12 l4 -16 l8 10 l10 -8 l2 18 l12 -6 l-6 16 l8 14 l-10 6 l4 24" stroke="#111" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round"/>'+
+   '<path d="M88 66 l-8 -12 M96 60 l2 -14 M104 64 l10 -12" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'pedCrossing', cat:'warning', name:'Pedestrian Crossing', short:'PEDESTRIAN',
+ meaning:'Watch for pedestrians crossing ahead. Yield to anyone in a crosswalk — marked or unmarked.',
+ trick:'Walking figure = people cross here.',
+ svg:()=>WARN('<circle cx="104" cy="66" r="9" fill="#111"/>'+
+   '<path d="M104 78 l-4 30 l14 22 M100 108 l-14 26 M100 108 l16 24" stroke="#111" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<path d="M84 92 l-12 12 M120 88 l14 6" stroke="#111" stroke-width="7" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'zipper', cat:'warning', name:'Zipper Merge', short:'ZIPPER',
+ meaning:'Two lanes are merging into one. Use both lanes up to the merge point and take turns merging one at a time.',
+ trick:'Like a zipper — one from the left, one from the right.',
+ svg:()=>WARN('<path d="M66 156 L66 116 L92 84 L92 56" stroke="#111" stroke-width="8" fill="none"/>'+
+   '<path d="M134 156 L134 116 L108 84 L108 56" stroke="#111" stroke-width="8" fill="none"/>'+
+   '<path d="M100 156 L100 60" stroke="#111" stroke-width="5" stroke-dasharray="12 10"/>')});
+
+/* ---------- SCHOOL ---------- */
+SIGNS.push({id:'schoolPenta', cat:'school', name:'School Zone', short:'SCHOOL',
+ meaning:'A school zone or school crossing is ahead. Slow down, watch for children, and stop as necessary. The speed limit in a school zone is 20 mph when children are present.',
+ trick:'5 sides = SCHOOL. This is the only pentagon sign you\'ll see.',
+ svg:()=>S('<polygon points="100,12 184,74 152,180 48,180 16,74" fill="#c8e64b" stroke="#111" stroke-width="6"/>'+
+   '<circle cx="78" cy="94" r="11" fill="#111"/><circle cx="122" cy="94" r="11" fill="#111"/>'+
+   '<path d="M78 106 l0 30 M78 118 l-14 14 M78 118 l14 14 M78 136 l-8 26 M78 136 l10 26" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>'+
+   '<path d="M122 106 l0 30 M122 118 l-14 14 M122 118 l14 14 M122 136 l-8 26 M122 136 l10 26" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'schoolCross', cat:'school', name:'School Crossing', short:'SCHOOL XING',
+ meaning:'Children cross here. Slow down and watch for children, stopping as necessary. Newer versions may be fluorescent yellow-green.',
+ trick:'Two figures walking = kids cross here.',
+ svg:()=>WARN('<circle cx="80" cy="70" r="9" fill="#111"/><circle cx="120" cy="66" r="11" fill="#111"/>'+
+   '<path d="M80 82 l-2 28 l10 22 M78 110 l-12 24 M78 110 l14 22" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<path d="M120 80 l-2 30 l12 22 M118 110 l-14 24 M118 110 l14 22" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')});
+
+/* ---------- RAILROAD ---------- */
+SIGNS.push({id:'rrAdvance', cat:'railroad', name:'Railroad Advance Warning', short:'RR AHEAD',
+ meaning:'You are approaching a highway-rail intersection. Slow down and watch for the crossing. Use particular caution at night.',
+ trick:'Round yellow with RR = tracks ahead.',
+ svg:()=>S('<circle cx="100" cy="100" r="92" fill="#ffd93d" stroke="#111" stroke-width="5"/>'+
+   '<path d="M40 40 L160 160 M160 40 L40 160" stroke="#111" stroke-width="14"/>'+
+   '<text x="62" y="86" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="34" font-weight="900" fill="#111">R</text>'+
+   '<text x="138" y="86" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="34" font-weight="900" fill="#111">R</text>')});
+
+SIGNS.push({id:'crossbuck', cat:'railroad', name:'Crossbuck', short:'CROSSBUCK',
+ meaning:'Located at the railroad crossing. It has the same meaning as a YIELD sign — you must yield to crossing trains.',
+ trick:'X shape = yield to trains. Always expect a train.',
+ svg:()=>S('<rect x="94" y="120" width="12" height="80" fill="#b0b0b0" stroke="#111" stroke-width="2"/>'+
+   '<g transform="translate(100,90)">'+
+   '<rect x="-80" y="-12" width="160" height="24" fill="#fff" stroke="#111" stroke-width="3" transform="rotate(-30)"/>'+
+   '<rect x="-80" y="-12" width="160" height="24" fill="#fff" stroke="#111" stroke-width="3" transform="rotate(30)"/>'+
+   '<text x="0" y="-28" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#111" transform="rotate(-30)">RAILROAD</text>'+
+   '<text x="0" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#111" transform="rotate(30)">CROSSING</text>'+
+   '</g>')});
+
+SIGNS.push({id:'rrFlashing', cat:'railroad', name:'Flashing Red Lights', short:'RR LIGHTS',
+ meaning:'When the lights are flashing, a train is approaching. You must stop. Do not cross until the lights stop flashing.',
+ trick:'Flashing red = a train is coming. Stop and wait.',
+ svg:()=>S('<rect x="94" y="110" width="12" height="86" fill="#b0b0b0" stroke="#111" stroke-width="2"/>'+
+   '<rect x="52" y="24" width="96" height="34" rx="6" fill="#111"/>'+
+   '<circle cx="76" cy="41" r="12" fill="#e63946"><animate attributeName="opacity" values="1;0.1;1" dur="1s" repeatCount="indefinite"/></circle>'+
+   '<circle cx="124" cy="41" r="12" fill="#e63946"><animate attributeName="opacity" values="0.1;1;0.1" dur="1s" repeatCount="indefinite"/></circle>'+
+   '<rect x="56" y="72" width="88" height="30" rx="4" fill="#fff" stroke="#111" stroke-width="3"/>'+
+   TXT(100,94,'2 TRACKS',15))});
+
+SIGNS.push({id:'rrGate', cat:'railroad', name:'Crossing Gate', short:'GATE',
+ meaning:'The gate lowers when a train is coming. NEVER drive around a lowered gate — the train will arrive faster than you think.',
+ trick:'Gate down = train coming. Wait. Do not go around.',
+ svg:()=>S('<rect x="60" y="150" width="12" height="46" fill="#b0b0b0" stroke="#111" stroke-width="2"/>'+
+   '<rect x="66" y="112" width="120" height="14" rx="4" fill="#fff" stroke="#111" stroke-width="3"/>'+
+   '<rect x="76" y="112" width="14" height="14" fill="#e63946"/><rect x="104" y="112" width="14" height="14" fill="#e63946"/>'+
+   '<rect x="132" y="112" width="14" height="14" fill="#e63946"/><rect x="160" y="112" width="14" height="14" fill="#e63946"/>'+
+   '<circle cx="102" cy="88" r="11" fill="#e63946"/><circle cx="140" cy="88" r="11" fill="#e63946"/>'+
+   '<rect x="80" y="66" width="82" height="30" rx="6" fill="#111"/>')});
+
+SIGNS.push({id:'rrTracks2', cat:'railroad', name:'Number of Tracks', short:'2 TRACKS',
+ meaning:'There are two or more tracks at this crossing. A second train may be hidden by the one that just passed. Wait until you are sure.',
+ trick:'More than one track = more than one train. Wait.',
+ svg:()=>S('<rect x="30" y="60" width="140" height="80" rx="8" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   '<path d="M46 100 h108" stroke="#111" stroke-width="5"/>'+
+   '<path d="M46 112 h108" stroke="#111" stroke-width="5"/>'+
+   '<path d="M58 88 v36 M142 88 v36" stroke="#111" stroke-width="4"/>'+
+   TXT(100,52,'2 TRACKS',17))});
+
+/* ---------- GUIDE ---------- */
+SIGNS.push({id:'guideGreen', cat:'guide', name:'Directional Guide Sign', short:'GUIDE',
+ meaning:'Green signs give directions and destinations. The arrow points the way to the named place.',
+ trick:'Green = go this way.',
+ svg:()=>S('<rect x="10" y="50" width="180" height="100" rx="6" fill="#2f9e44" stroke="#fff" stroke-width="4"/>'+
+   arrowPath('M36 74 L36 60 L70 60','#fff',6,12)+
+   '<text x="80" y="68" text-anchor="start" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">WILMINGTON</text>'+
+   arrowPath('M36 130 L70 130','#fff',6,12)+
+   '<text x="80" y="138" text-anchor="start" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">DOVER</text>')});
+
+SIGNS.push({id:'interstate', cat:'guide', name:'Interstate Route Marker', short:'INTERSTATE',
+ meaning:'Marks an interstate highway. The number is in the blue field with INTERSTATE in white on red above.',
+ trick:'Red-white-blue shield = interstate.',
+ svg:()=>S('<path d="M100 8 L176 26 Q184 100 100 192 Q16 100 24 26 Z" fill="#1b4f9c" stroke="#fff" stroke-width="4"/>'+
+   '<path d="M24 26 Q100 8 176 26 Q174 52 168 62 L32 62 Q26 52 24 26 Z" fill="#c8102e"/>'+
+   TXT(100,50,'INTERSTATE',15,'#fff',700)+
+   TXT(100,140,'95',64,'#fff',900))});
+
+SIGNS.push({id:'usRoute', cat:'guide', name:'U.S. Route Marker', short:'US ROUTE',
+ meaning:'Marks a United States numbered highway. Black numbers on a white shield.',
+ trick:'White shield = U.S. route.',
+ svg:()=>S('<path d="M100 10 Q120 24 140 16 Q152 44 168 44 Q160 96 100 190 Q40 96 32 44 Q48 44 60 16 Q80 24 100 10 Z" fill="#fff" stroke="#111" stroke-width="4"/>'+
+   TXT(100,116,'40',58))});
+
+SIGNS.push({id:'stateRoute', cat:'guide', name:'State Route Marker', short:'STATE ROUTE',
+ meaning:'Marks a Delaware state route. Black numbers on a white circle.',
+ trick:'White circle = state route.',
+ svg:()=>S('<circle cx="100" cy="100" r="88" fill="#fff" stroke="#111" stroke-width="5"/>'+TXT(100,134,'18',72))});
+
+SIGNS.push({id:'restArea', cat:'guide', name:'Rest Area', short:'REST AREA',
+ meaning:'A rest area is ahead. Motorist service signs have white letters on a blue background.',
+ trick:'Blue = services.',
+ svg:()=>S('<rect x="10" y="60" width="180" height="80" rx="6" fill="#1b4f9c" stroke="#fff" stroke-width="4"/>'+
+   TXT(100,96,'REST AREA',22,'#fff',700)+TXT(100,124,'NEXT RIGHT',17,'#fff',700))});
+
+SIGNS.push({id:'gasSign', cat:'guide', name:'Gas / Fuel', short:'GAS',
+ meaning:'Gas station ahead. Blue motorist service sign.',
+ trick:'Blue with a fuel pump = gas ahead.',
+ svg:()=>S('<rect x="10" y="60" width="180" height="80" rx="6" fill="#1b4f9c" stroke="#fff" stroke-width="4"/>'+
+   '<rect x="34" y="78" width="34" height="44" rx="4" fill="#fff"/>'+
+   '<rect x="40" y="86" width="22" height="14" fill="#1b4f9c"/>'+
+   '<path d="M70 90 h8 v22 h-8" stroke="#fff" stroke-width="4" fill="none"/>'+
+   TXT(126,116,'GAS',28,'#fff',700))});
+
+SIGNS.push({id:'foodSign', cat:'guide', name:'Food', short:'FOOD',
+ meaning:'Food available ahead. Blue motorist service sign.',
+ trick:'Fork and knife = food.',
+ svg:()=>S('<rect x="10" y="60" width="180" height="80" rx="6" fill="#1b4f9c" stroke="#fff" stroke-width="4"/>'+
+   '<path d="M46 80 v40 M38 80 v16 q0 8 8 8 M54 80 v16 q0 8 -8 8" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>'+
+   '<path d="M74 80 l-6 22 h10 l-4 18" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+   TXT(128,116,'FOOD',26,'#fff',700))});
+
+SIGNS.push({id:'hospitalSign', cat:'guide', name:'Hospital', short:'HOSPITAL',
+ meaning:'Hospital ahead. Blue motorist service sign with a white H.',
+ trick:'White H = hospital.',
+ svg:()=>S('<rect x="10" y="60" width="180" height="80" rx="6" fill="#1b4f9c" stroke="#fff" stroke-width="4"/>'+
+   '<rect x="34" y="76" width="48" height="48" rx="6" fill="#fff"/>'+
+   '<rect x="54" y="84" width="8" height="32" fill="#c8102e"/><rect x="42" y="96" width="32" height="8" fill="#c8102e"/>'+
+   TXT(130,116,'HOSPITAL',18,'#fff',700))});
+
+SIGNS.push({id:'statePark', cat:'guide', name:'State Park', short:'STATE PARK',
+ meaning:'Recreation and cultural interest signs have white letters on a brown background.',
+ trick:'Brown = parks and history.',
+ svg:()=>S('<rect x="10" y="60" width="180" height="80" rx="6" fill="#7a4a24" stroke="#fff" stroke-width="4"/>'+
+   TXT(100,94,'STATE PARK',20,'#fff',700)+TXT(100,122,'NEXT LEFT',17,'#fff',700))});
+
+/* ---------- SIGNALS ---------- */
+function sigHousing(inner){ return S('<rect x="66" y="10" width="68" height="180" rx="14" fill="#222"/>'+inner); }
+SIGNS.push({id:'sigRed', cat:'signals', name:'Steady Red', short:'RED',
+ meaning:'STOP. Stop at the stop line, before the crosswalk, or before entering the intersection. Right turn on red is allowed after a full stop unless a sign prohibits it.',
+ trick:'Red = full stop, then look, then go if allowed.',
+ svg:()=>sigHousing('<circle cx="100" cy="52" r="22" fill="#e63946"/><circle cx="100" cy="100" r="22" fill="#3a3a3a"/><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>')});
+
+SIGNS.push({id:'sigYellow', cat:'signals', name:'Steady Yellow', short:'YELLOW',
+ meaning:'The signal is changing from green to red. PREPARE TO STOP. If you are too close to stop safely, continue through with care.',
+ trick:'Yellow is not "hurry." It is "get ready to stop."',
+ svg:()=>sigHousing('<circle cx="100" cy="52" r="22" fill="#3a3a3a"/><circle cx="100" cy="100" r="22" fill="#ffd93d"/><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>')});
+
+SIGNS.push({id:'sigGreen', cat:'signals', name:'Steady Green', short:'GREEN',
+ meaning:'PROCEED WITH CAUTION. You may go straight or turn unless a sign prohibits it. Yield to pedestrians and to vehicles still in the intersection.',
+ trick:'Green means go — after you look.',
+ svg:()=>sigHousing('<circle cx="100" cy="52" r="22" fill="#3a3a3a"/><circle cx="100" cy="100" r="22" fill="#3a3a3a"/><circle cx="100" cy="148" r="22" fill="#4ecb71"/>')});
+
+SIGNS.push({id:'sigFlashRed', cat:'signals', name:'Flashing Red', short:'FLASH RED',
+ meaning:'The same as a STOP SIGN. Come to a complete stop, then proceed only when it is safe.',
+ trick:'Flashing red = a stop sign that blinks.',
+ svg:()=>sigHousing('<circle cx="100" cy="52" r="22" fill="#e63946"><animate attributeName="opacity" values="1;0.08;1" dur="1.1s" repeatCount="indefinite"/></circle><circle cx="100" cy="100" r="22" fill="#3a3a3a"/><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>')});
+
+SIGNS.push({id:'sigFlashYellow', cat:'signals', name:'Flashing Yellow', short:'FLASH YEL',
+ meaning:'Slow down, be more aware, and proceed with caution. Cross traffic is controlled by a flashing red.',
+ trick:'Flashing yellow = caution, slow down.',
+ svg:()=>sigHousing('<circle cx="100" cy="52" r="22" fill="#3a3a3a"/><circle cx="100" cy="100" r="22" fill="#ffd93d"><animate attributeName="opacity" values="1;0.08;1" dur="1.1s" repeatCount="indefinite"/></circle><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>')});
+
+SIGNS.push({id:'sigGreenArrow', cat:'signals', name:'Green Arrow', short:'GREEN ARROW',
+ meaning:'Proceed with caution in the direction the arrow points. You must yield to pedestrians and vehicles already lawfully in the intersection.',
+ trick:'An arrow only talks to ONE direction.',
+ svg:()=>S('<rect x="66" y="10" width="68" height="180" rx="14" fill="#222"/>'+
+   '<circle cx="100" cy="52" r="22" fill="#3a3a3a"/><circle cx="100" cy="100" r="22" fill="#3a3a3a"/><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>'+
+   '<path d="M118 148 L92 148 L92 126" stroke="#4ecb71" stroke-width="8" fill="none" stroke-linecap="round"/>'+
+   '<polygon points="78,126 92,106 106,126" fill="#4ecb71"/>')});
+
+SIGNS.push({id:'sigRedArrow', cat:'signals', name:'Red Arrow', short:'RED ARROW',
+ meaning:'Full stop required. You may NOT go in the direction of the arrow. No turn on red in that direction.',
+ trick:'Red arrow = red light for that one direction.',
+ svg:()=>S('<rect x="66" y="10" width="68" height="180" rx="14" fill="#222"/>'+
+   '<circle cx="100" cy="52" r="22" fill="#3a3a3a"/><circle cx="100" cy="100" r="22" fill="#3a3a3a"/><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>'+
+   '<path d="M118 148 L92 148 L92 126" stroke="#e63946" stroke-width="8" fill="none" stroke-linecap="round"/>'+
+   '<polygon points="78,126 92,106 106,126" fill="#e63946"/>')});
+
+SIGNS.push({id:'sigFlashYellowArrow', cat:'signals', name:'Flashing Yellow Arrow', short:'FLASH ARROW',
+ meaning:'The movement in the indicated direction is permitted AFTER you yield to oncoming traffic and pedestrians.',
+ trick:'Flashing yellow arrow = yield, then go.',
+ svg:()=>S('<rect x="66" y="10" width="68" height="180" rx="14" fill="#222"/>'+
+   '<circle cx="100" cy="52" r="22" fill="#3a3a3a"/><circle cx="100" cy="100" r="22" fill="#3a3a3a"/><circle cx="100" cy="148" r="22" fill="#3a3a3a"/>'+
+   '<path d="M82 148 L108 148 L108 126" stroke="#ffd93d" stroke-width="8" fill="none" stroke-linecap="round">'+
+   '<animate attributeName="opacity" values="1;0.1;1" dur="1.1s" repeatCount="indefinite"/></path>'+
+   '<polygon points="122,126 108,106 94,126" fill="#ffd93d"><animate attributeName="opacity" values="1;0.1;1" dur="1.1s" repeatCount="indefinite"/></polygon>')});
+
+SIGNS.push({id:'pedWalk', cat:'signals', name:'WALK', short:'WALK',
+ meaning:'Pedestrians may proceed, but must watch for turning vehicles. Drivers must yield to pedestrians who have the WALK indicator.',
+ trick:'Walking person = go, but look both ways.',
+ svg:()=>S('<rect x="20" y="30" width="160" height="140" rx="10" fill="#111"/>'+
+   '<circle cx="100" cy="70" r="11" fill="#4ecb71"/>'+
+   '<path d="M100 84 l-4 30 l16 22 M96 114 l-16 26 M96 114 l18 24 M100 92 l-16 12 M100 92 l16 10" stroke="#4ecb71" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')});
+
+SIGNS.push({id:'pedDontWalk', cat:'signals', name:"DON'T WALK", short:"DON'T WALK",
+ meaning:'Steady hand: do not start crossing. Flashing hand: if you have already started, finish crossing quickly.',
+ trick:'Hand up = stop. Flashing hand = finish if you started.',
+ svg:()=>S('<rect x="20" y="30" width="160" height="140" rx="10" fill="#111"/>'+
+   '<path d="M72 100 q0 -30 28 -30 q28 0 28 30 q0 22 -10 30 l4 22 h-44 l4 -22 q-10 -8 -10 -30 z" fill="#ff9f1c"/>'+
+   '<path d="M80 74 l-14 -18 M92 68 l-6 -22 M108 68 l6 -22 M120 74 l14 -18" stroke="#ff9f1c" stroke-width="7" fill="none" stroke-linecap="round"/>'+
+   '<path d="M76 118 l-6 20 M124 118 l6 20" stroke="#ff9f1c" stroke-width="7" fill="none" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'laneGreenArrow', cat:'signals', name:'Lane Control: Green Arrow', short:'LANE OPEN',
+ meaning:'The lane beneath this signal is open to traffic. You may drive in it.',
+ trick:'Green arrow down = you can use this lane.',
+ svg:()=>S('<rect x="30" y="20" width="140" height="160" rx="10" fill="#111"/>'+
+   arrowPath('M100 150 L100 60','#4ecb71',18,26))});
+
+SIGNS.push({id:'laneRedX', cat:'signals', name:'Lane Control: Red X', short:'LANE CLOSED',
+ meaning:'Do NOT drive in the lane beneath this signal. The lane is closed or being used in the opposite direction.',
+ trick:'Red X = do not enter this lane.',
+ svg:()=>S('<rect x="30" y="20" width="140" height="160" rx="10" fill="#111"/>'+
+   '<path d="M62 52 L138 148 M138 52 L62 148" stroke="#e63946" stroke-width="20" stroke-linecap="round"/>')});
+
+SIGNS.push({id:'laneYellowX', cat:'signals', name:'Lane Control: Yellow X', short:'LANE CHANGING',
+ meaning:'The use of the lane beneath this signal is changing. Move out of it as soon as it is safe to do so.',
+ trick:'Yellow X = get out of this lane soon.',
+ svg:()=>S('<rect x="30" y="20" width="140" height="160" rx="10" fill="#111"/>'+
+   '<path d="M62 52 L138 148 M138 52 L62 148" stroke="#ffd93d" stroke-width="20" stroke-linecap="round"/>')});
+
+/* ---------- PAVEMENT MARKINGS ---------- */
+function pmRoad(inner){
+  return S('<rect width="200" height="200" fill="#8a8f98"/>'+
+    '<rect x="0" y="0" width="200" height="200" fill="none"/>'+inner);
+}
+SIGNS.push({id:'pmBrokenYellow', cat:'pavement', name:'Broken Yellow Line', short:'BROKEN YELLOW',
+ meaning:'Separates traffic moving in OPPOSITE directions. You may cross a broken yellow line to pass if it is safe to do so.',
+ trick:'Broken yellow = pass if safe.',
+ svg:()=>pmRoad('<rect x="92" y="0" width="16" height="34" fill="#ffd93d"/><rect x="92" y="52" width="16" height="34" fill="#ffd93d"/>'+
+   '<rect x="92" y="104" width="16" height="34" fill="#ffd93d"/><rect x="92" y="156" width="16" height="34" fill="#ffd93d"/>'+
+   arrowPath('M50 180 L50 30','#fff',7,14)+arrowPath('M150 20 L150 170','#fff',7,14))});
+
+SIGNS.push({id:'pmDoubleYellow', cat:'pavement', name:'Double Solid Yellow', short:'DOUBLE YELLOW',
+ meaning:'Two solid yellow lines between opposing lanes of traffic means NEITHER side may pass.',
+ trick:'Two solid yellows = nobody passes.',
+ svg:()=>pmRoad('<rect x="80" y="0" width="14" height="200" fill="#ffd93d"/><rect x="106" y="0" width="14" height="200" fill="#ffd93d"/>'+
+   arrowPath('M46 180 L46 30','#fff',7,14)+arrowPath('M154 20 L154 170','#fff',7,14))});
+
+SIGNS.push({id:'pmSolidBrokenYellow', cat:'pavement', name:'Solid and Broken Yellow', short:'SOLID+BROKEN',
+ meaning:'You may pass only if the BROKEN yellow line is on YOUR side. If the solid line is on your side, you may not pass.',
+ trick:'Look down. Whose line is broken? That side can pass.',
+ svg:()=>pmRoad('<rect x="80" y="0" width="14" height="200" fill="#ffd93d"/>'+
+   '<rect x="106" y="0" width="14" height="34" fill="#ffd93d"/><rect x="106" y="52" width="14" height="34" fill="#ffd93d"/>'+
+   '<rect x="106" y="104" width="14" height="34" fill="#ffd93d"/><rect x="106" y="156" width="14" height="34" fill="#ffd93d"/>'+
+   arrowPath('M46 180 L46 30','#fff',7,14)+arrowPath('M154 20 L154 170','#fff',7,14))});
+
+SIGNS.push({id:'pmBrokenWhite', cat:'pavement', name:'Broken White Line', short:'BROKEN WHITE',
+ meaning:'Separates lanes of traffic going the SAME direction. You may cross it to change lanes if it is safe.',
+ trick:'Broken white = lane change OK.',
+ svg:()=>pmRoad('<rect x="92" y="0" width="16" height="30" fill="#fff"/><rect x="92" y="48" width="16" height="30" fill="#fff"/>'+
+   '<rect x="92" y="96" width="16" height="30" fill="#fff"/><rect x="92" y="144" width="16" height="30" fill="#fff"/>')});
+
+SIGNS.push({id:'pmSolidWhite', cat:'pavement', name:'Solid White Line', short:'SOLID WHITE',
+ meaning:'Separates lanes going the same direction. You are discouraged from changing lanes across a solid white line.',
+ trick:'Solid white = stay in your lane.',
+ svg:()=>pmRoad('<rect x="92" y="0" width="16" height="200" fill="#fff"/>')});
+
+SIGNS.push({id:'pmDoubleWhite', cat:'pavement', name:'Double Solid White', short:'2X WHITE',
+ meaning:'Two solid white lines prohibit lane changing.',
+ trick:'Two solid whites = stay put.',
+ svg:()=>pmRoad('<rect x="80" y="0" width="14" height="200" fill="#fff"/><rect x="106" y="0" width="14" height="200" fill="#fff"/>')});
+
+SIGNS.push({id:'pmEdgeLine', cat:'pavement', name:'Edge Line', short:'EDGE LINE',
+ meaning:'A solid white line along the side of the road shows where the outside edge of the travel lane is.',
+ trick:'White line at the side = the shoulder starts here.',
+ svg:()=>pmRoad('<rect x="150" y="0" width="14" height="200" fill="#fff"/><rect x="36" y="0" width="14" height="200" fill="#fff"/>'+
+   '<rect x="0" y="0" width="36" height="200" fill="#9aa0a8"/>')});
+
+SIGNS.push({id:'pmCrosswalk', cat:'pavement', name:'Crosswalk', short:'CROSSWALK',
+ meaning:'Defines the area where pedestrians may cross. You must yield to pedestrians in a crosswalk — marked OR unmarked.',
+ trick:'White bars = people walk here. Yield.',
+ svg:()=>pmRoad('<rect x="0" y="60" width="200" height="80" fill="#8a8f98"/>'+
+   '<rect x="24" y="60" width="18" height="80" fill="#fff"/><rect x="60" y="60" width="18" height="80" fill="#fff"/>'+
+   '<rect x="96" y="60" width="18" height="80" fill="#fff"/><rect x="132" y="60" width="18" height="80" fill="#fff"/>'+
+   '<rect x="168" y="60" width="18" height="80" fill="#fff"/>')});
+
+SIGNS.push({id:'pmStopLine', cat:'pavement', name:'Stop Line', short:'STOP LINE',
+ meaning:'When you must stop for a sign or signal, stop BEFORE your vehicle reaches the stop line — or before the crosswalk if there is no stop line.',
+ trick:'Stop line first. Then crosswalk. Then intersection.',
+ svg:()=>pmRoad('<rect x="10" y="130" width="180" height="16" fill="#fff"/>'+
+   '<rect x="24" y="60" width="18" height="60" fill="#fff"/><rect x="60" y="60" width="18" height="60" fill="#fff"/>'+
+   '<rect x="96" y="60" width="18" height="60" fill="#fff"/><rect x="132" y="60" width="18" height="60" fill="#fff"/>'+
+   '<rect x="168" y="60" width="18" height="60" fill="#fff"/>')});
+
+SIGNS.push({id:'pmBikeBox', cat:'pavement', name:'Bike Box', short:'BIKE BOX',
+ meaning:'A designated area at the head of a traffic lane at an intersection that gives bicyclists a safe way to turn and a visible way to get ahead of traffic.',
+ trick:'Green box at the front = bikes get to go first.',
+ svg:()=>pmRoad('<rect x="14" y="96" width="172" height="90" rx="4" fill="#2f9e44"/>'+
+   '<rect x="14" y="96" width="172" height="10" fill="#fff"/>'+
+   '<circle cx="70" cy="142" r="16" fill="none" stroke="#fff" stroke-width="5"/>'+
+   '<circle cx="118" cy="142" r="16" fill="none" stroke="#fff" stroke-width="5"/>'+
+   '<path d="M70 142 L86 122 L110 122 L118 142 M86 122 L96 142" stroke="#fff" stroke-width="5" fill="none"/>')});
+
+SIGNS.push({id:'pmSharrow', cat:'pavement', name:'Shared Lane Marking', short:'SHARROW',
+ meaning:'The shared lane marking positions bicyclists in the lane, encourages safe passing, and reminds everyone that bikes may legally use the lane.',
+ trick:'Chevrons + bike = share the lane, 3 feet when passing.',
+ svg:()=>pmRoad('<path d="M100 26 L76 56 L88 56 L88 66 L112 66 L112 56 L124 56 Z" fill="#fff"/>'+
+   '<path d="M100 74 L76 104 L88 104 L88 114 L112 114 L112 104 L124 104 Z" fill="#fff"/>'+
+   '<circle cx="76" cy="160" r="17" fill="none" stroke="#fff" stroke-width="5"/>'+
+   '<circle cx="124" cy="160" r="17" fill="none" stroke="#fff" stroke-width="5"/>'+
+   '<path d="M76 160 L92 136 L112 136 L124 160 M92 136 L102 160" stroke="#fff" stroke-width="5" fill="none"/>')});
+
+SIGNS.push({id:'pmReversible', cat:'pavement', name:'Reversible Lane', short:'REVERSIBLE',
+ meaning:'Some lanes carry traffic one direction at certain times and the opposite direction at other times. Check overhead signals before entering.',
+ trick:'Double broken yellow = the direction can flip. Check the lights.',
+ svg:()=>pmRoad('<rect x="60" y="0" width="12" height="200" fill="#ffd93d"/>'+
+   '<rect x="76" y="0" width="12" height="200" fill="#ffd93d"/>'+
+   '<rect x="112" y="0" width="12" height="200" fill="#ffd93d"/>'+
+   '<rect x="128" y="0" width="12" height="200" fill="#ffd93d"/>')});
+
+/* ---------- SPECIAL ---------- */
+SIGNS.push({id:'moveOver', cat:'special', name:'Move Over', short:'MOVE OVER',
+ meaning:'On a multi-lane road, move over a lane for stopped emergency, tow, or DelDOT vehicles with flashing lights. On a two-lane road, slow below the posted limit until you have completely passed.',
+ trick:'Move over a lane, or slow way down. It\'s the law.',
+ svg:()=>S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#fff" stroke="#111" stroke-width="5"/>'+
+   arrowPath('M46 150 L46 90 Q46 60 80 60 L142 60','#e63946',13,18)+
+   '<rect x="52" y="108" width="30" height="34" rx="5" fill="#5b8def"/>'+
+   '<circle cx="60" cy="148" r="7" fill="#111"/><circle cx="76" cy="148" r="7" fill="#111"/>'+
+   TXT(100,180,'MOVE OVER',17))});
+
+SIGNS.push({id:'workZone', cat:'special', name:'Work Zone', short:'WORK ZONE',
+ meaning:'Construction or maintenance work is happening here. Watch for changing traffic patterns, workers, cones, and flaggers. Speeding fines are DOUBLED.',
+ trick:'Orange = workers. Slow down, double fines.',
+ svg:()=>S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#ff9f1c" stroke="#111" stroke-width="5"/>'+
+   '<circle cx="70" cy="80" r="12" fill="#111"/>'+
+   '<path d="M70 92 l0 34 M70 104 l-16 18 M70 104 l16 18 M70 126 l-10 30 M70 126 l12 30" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round"/>'+
+   '<rect x="108" y="76" width="34" height="26" rx="4" fill="#111"/>'+
+   TXT(100,176,'WORK ZONE',20))});
+
+SIGNS.push({id:'bikeLane', cat:'special', name:'Bike Lane', short:'BIKE LANE',
+ meaning:'Reserved lane for bicycles. Do not drive or park in it.',
+ trick:'Bike symbol + lane = bikes only.',
+ svg:()=>S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#2f9e44" stroke="#111" stroke-width="5"/>'+
+   '<circle cx="66" cy="132" r="24" fill="none" stroke="#fff" stroke-width="7"/>'+
+   '<circle cx="134" cy="132" r="24" fill="none" stroke="#fff" stroke-width="7"/>'+
+   '<path d="M66 132 L92 96 L124 96 L134 132 M92 96 L106 132 M82 80 L104 80" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>'+
+   TXT(100,178,'BIKE LANE',18,'#fff',900))});
+
+SIGNS.push({id:'roundaboutSign', cat:'special', name:'Roundabout', short:'ROUNDABOUT',
+ meaning:'A roundabout is a circular intersection with traffic moving counterclockwise around a central island. Yield to traffic already in the circle.',
+ trick:'Enter right, go counterclockwise, exit right.',
+ svg:()=>S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#2f9e44" stroke="#111" stroke-width="5"/>'+
+   '<circle cx="100" cy="100" r="46" fill="#8a8f98" stroke="#fff" stroke-width="4"/>'+
+   '<circle cx="100" cy="100" r="20" fill="#7cc47c" stroke="#fff" stroke-width="3"/>'+
+   arrowPath('M100 46 A54 54 0 0 0 46 100','#fff',7,14)+
+   arrowPath('M46 100 A54 54 0 0 0 100 154','#fff',7,14)+
+   arrowPath('M100 154 A54 54 0 0 0 154 100','#fff',7,14)+
+   '<rect x="86" y="0" width="28" height="40" fill="#8a8f98"/>'+
+   '<rect x="86" y="160" width="28" height="40" fill="#8a8f98"/>'+
+   '<rect x="0" y="86" width="40" height="28" fill="#8a8f98"/>'+
+   '<rect x="160" y="86" width="40" height="28" fill="#8a8f98"/>')});
+
+SIGNS.push({id:'schoolBusStop', cat:'special', name:'School Bus Stop', short:'BUS STOP',
+ meaning:'When a school bus has its red lights flashing and stop arm out, you must stop until the lights stop flashing and the arm retracts — unless you are on the opposite side of a highway with 4 or more lanes.',
+ trick:'Red lights + arm = stop. 4+ lanes on the other side = slow, don\'t stop.',
+ svg:()=>S('<rect x="6" y="6" width="188" height="188" rx="12" fill="#ffd93d" stroke="#111" stroke-width="5"/>'+
+   '<rect x="30" y="70" width="140" height="60" rx="8" fill="#f4c430" stroke="#111" stroke-width="4"/>'+
+   '<rect x="120" y="80" width="40" height="26" rx="4" fill="#bfe6ff" stroke="#111" stroke-width="3"/>'+
+   '<circle cx="60" cy="136" r="12" fill="#111"/><circle cx="140" cy="136" r="12" fill="#111"/>'+
+   '<circle cx="46" cy="62" r="9" fill="#e63946"><animate attributeName="opacity" values="1;0.1;1" dur=".9s" repeatCount="indefinite"/></circle>'+
+   '<circle cx="154" cy="62" r="9" fill="#e63946"><animate attributeName="opacity" values="0.1;1;0.1" dur=".9s" repeatCount="indefinite"/></circle>'+
+   TXT(100,176,'SCHOOL BUS',17))});
+
+/* =========================================================================
+   2. ANIMATED SCENES  —  SMIL, all inline
+   ========================================================================= */
+const SCENES = [
+{
+  id:'sc-roundabout', title:'Roundabout: Going in Circles', emoji:'🔄',
+  blurb:'Traffic moves counterclockwise. Yield to cars already in the circle.',
+  lesson:'Approach the roundabout in the correct lane. Stay right of the splitter island and slow to 10–15 mph. Yield to traffic already in the roundabout, then keep to the right of the center island and travel counterclockwise. When you reach your street, exit — watching for pedestrians and bicyclists.',
+  points:['Yield to traffic ALREADY in the circle.','Always go counterclockwise.','Never stop inside the roundabout unless avoiding a crash.','You have the right-of-way over entering traffic once you\'re in.'],
+  svg:()=>`<svg viewBox="0 0 420 320">
+    <rect width="420" height="320" fill="#dff3d8"/>
+    <rect x="180" y="0" width="60" height="130" fill="#8a8f98"/>
+    <rect x="180" y="190" width="60" height="130" fill="#8a8f98"/>
+    <rect x="0" y="130" width="130" height="60" fill="#8a8f98"/>
+    <rect x="290" y="130" width="130" height="60" fill="#8a8f98"/>
+    <circle cx="210" cy="160" r="80" fill="#8a8f98"/>
+    <circle cx="210" cy="160" r="42" fill="#7cc47c" stroke="#5aa05a" stroke-width="4"/>
+    <circle cx="210" cy="160" r="66" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 12" opacity=".7"/>
+    <rect x="206" y="0" width="8" height="90" fill="#ffd93d" opacity=".8"/>
+    <rect x="206" y="240" width="8" height="80" fill="#ffd93d" opacity=".8"/>
+    <polygon points="196,196 224,196 210,170" fill="#fff" stroke="#e63946" stroke-width="3"/>
+    <g>
+      <rect x="-13" y="-8" width="26" height="16" rx="4" fill="#e63946" stroke="#111" stroke-width="1.5"/>
+      <rect x="-5" y="-6" width="10" height="12" rx="2" fill="#bfe6ff"/>
+      <animateMotion dur="8s" repeatCount="indefinite" rotate="auto"
+        path="M210 300 L210 226 A66 66 0 0 0 210 94 L210 0"/>
+    </g>
+    <g>
+      <rect x="-11" y="-7" width="22" height="14" rx="4" fill="#5b8def" stroke="#111" stroke-width="1.5"/>
+      <animateMotion dur="8s" begin="4s" repeatCount="indefinite" rotate="auto"
+        path="M0 190 L140 190 A66 66 0 0 0 210 226 A66 66 0 0 1 280 190 L420 190"/>
+    </g>
+    <text x="210" y="308" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="15" font-weight="700" fill="#1b1b2f">Counterclockwise only</text>
+  </svg>`
+},
+{
+  id:'sc-bus', title:'School Bus: Red Lights Flashing', emoji:'🚌',
+  blurb:'Both directions stop on roads with fewer than 4 lanes.',
+  lesson:'On a road with fewer than four lanes, traffic in BOTH directions must stop when a school bus has its red lights flashing and stop arm out. On a highway with four or more lanes, only traffic following the bus must stop — but traffic on the opposite side should still proceed slowly and cautiously.',
+  points:['Yellow lights = a stop is coming (about 10 seconds ahead).','Red lights + stop arm = everyone stops.','4+ lanes, opposite side = slow down, don\'t stop.','Passing a stopped bus = 6 points, big fine, possible jail.'],
+  svg:()=>`<svg viewBox="0 0 440 260">
+    <rect width="440" height="260" fill="#dff3d8"/>
+    <rect x="0" y="96" width="440" height="72" fill="#8a8f98"/>
+    <rect x="0" y="128" width="440" height="6" fill="#fff" stroke-dasharray="20 16" opacity=".85"/>
+    <g transform="translate(255,74)">
+      <rect x="0" y="0" width="150" height="58" rx="10" fill="#f4c430" stroke="#111" stroke-width="3"/>
+      <rect x="96" y="8" width="46" height="30" rx="5" fill="#bfe6ff" stroke="#111" stroke-width="2"/>
+      <rect x="8" y="8" width="30" height="26" rx="4" fill="#bfe6ff" stroke="#111" stroke-width="2"/>
+      <circle cx="34" cy="62" r="13" fill="#111"/><circle cx="118" cy="62" r="13" fill="#111"/>
+      <rect x="46" y="-14" width="58" height="14" rx="4" fill="#111"/>
+      <circle cx="56" cy="-7" r="6" fill="#e63946"><animate attributeName="opacity" values="1;0.1;1" dur="0.8s" repeatCount="indefinite"/></circle>
+      <circle cx="94" cy="-7" r="6" fill="#e63946"><animate attributeName="opacity" values="0.1;1;0.1" dur="0.8s" repeatCount="indefinite"/></circle>
+      <g>
+        <rect x="-2" y="16" width="6" height="34" rx="3" fill="#e63946"/>
+        <polygon points="-2,16 -36,4 -36,52 -2,40" fill="#e63946" stroke="#fff" stroke-width="2"/>
+        <animate attributeName="opacity" values="1;1" dur="1s"/>
+      </g>
+      <text x="75" y="42" text-anchor="middle" font-family="Arial Black,Arial" font-size="13" font-weight="900" fill="#111">SCHOOL BUS</text>
+    </g>
+    <g transform="translate(60,150)">
+      <rect x="0" y="0" width="56" height="26" rx="6" fill="#5b8def" stroke="#111" stroke-width="2"/>
+      <rect x="10" y="4" width="22" height="14" rx="3" fill="#bfe6ff"/>
+      <circle cx="14" cy="28" r="8" fill="#111"/><circle cx="44" cy="28" r="8" fill="#111"/>
+    </g>
+    <g transform="translate(330,140)">
+      <rect x="0" y="0" width="56" height="26" rx="6" fill="#e63946" stroke="#111" stroke-width="2"/>
+      <rect x="10" y="4" width="22" height="14" rx="3" fill="#bfe6ff"/>
+      <circle cx="14" cy="28" r="8" fill="#111"/><circle cx="44" cy="28" r="8" fill="#111"/>
+    </g>
+    <text x="88" y="118" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="13" font-weight="700" fill="#fff">STOPPED</text>
+    <text x="358" y="112" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="13" font-weight="700" fill="#fff">STOPPED</text>
+    <text x="220" y="248" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="14" font-weight="700" fill="#1b1b2f">Fewer than 4 lanes → BOTH directions stop</text>
+  </svg>`
+},
+{
+  id:'sc-4way', title:'Four-Way Stop: Who Goes First?', emoji:'4️⃣',
+  blurb:'First to stop goes first. Tie goes to the right.',
+  lesson:'At a four-way stop, the driver who stopped first goes first. If two vehicles arrive at the same time, the vehicle on the right goes first. Never assume — make eye contact and be ready to yield even when it\'s your turn.',
+  points:['First to arrive = first to go.','Tie = the driver on the right goes.','If in doubt, yield. Preventing a crash beats being right.','Never wave someone through if it could confuse other drivers.'],
+  svg:()=>`<svg viewBox="0 0 360 360">
+    <rect width="360" height="360" fill="#dff3d8"/>
+    <rect x="140" y="0" width="80" height="360" fill="#8a8f98"/>
+    <rect x="0" y="140" width="360" height="80" fill="#8a8f98"/>
+    <rect x="176" y="0" width="8" height="130" fill="#ffd93d"/>
+    <rect x="176" y="230" width="8" height="130" fill="#ffd93d"/>
+    <rect x="0" y="176" width="130" height="8" fill="#ffd93d"/>
+    <rect x="230" y="176" width="130" height="8" fill="#ffd93d"/>
+    <text x="60" y="60" text-anchor="middle" font-family="Arial Black,Arial" font-size="30" font-weight="900" fill="#e63946">STOP</text>
+    <text x="300" y="60" text-anchor="middle" font-family="Arial Black,Arial" font-size="30" font-weight="900" fill="#e63946">STOP</text>
+    <text x="60" y="320" text-anchor="middle" font-family="Arial Black,Arial" font-size="30" font-weight="900" fill="#e63946">STOP</text>
+    <text x="300" y="320" text-anchor="middle" font-family="Arial Black,Arial" font-size="30" font-weight="900" fill="#e63946">STOP</text>
+    <g transform="translate(180,340) rotate(-90)">
+      <rect x="-16" y="-10" width="32" height="20" rx="5" fill="#e63946" stroke="#111" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff">1st</text>
+    </g>
+    <g transform="translate(20,180) rotate(0)">
+      <rect x="-16" y="-10" width="32" height="20" rx="5" fill="#5b8def" stroke="#111" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff">2nd</text>
+    </g>
+    <g transform="translate(180,20) rotate(90)">
+      <rect x="-16" y="-10" width="32" height="20" rx="5" fill="#4ecb71" stroke="#111" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff">3rd</text>
+    </g>
+    <g transform="translate(340,180) rotate(180)">
+      <rect x="-16" y="-10" width="32" height="20" rx="5" fill="#a78bfa" stroke="#111" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#fff">4th</text>
+    </g>
+    <circle cx="180" cy="180" r="10" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="4 4"/>
+  </svg>`
+},
+{
+  id:'sc-moveover', title:'Move Over Law', emoji:'🚨',
+  blurb:'Multi-lane: change lanes. Two-lane: slow way down.',
+  lesson:'When you approach a stationary emergency vehicle, tow truck, or DelDOT vehicle with flashing lights, move over a lane on a multi-lane road. On a two-lane road, slow down below the posted speed limit until you have completely passed.',
+  points:['Multi-lane road → move over a lane.','Two-lane road → slow below the posted limit.','Applies to police, fire, EMS, tow trucks, DelDOT, and any vehicle with hazard lights or cones.','If you can\'t move over safely, slow to a safe speed.'],
+  svg:()=>`<svg viewBox="0 0 440 260">
+    <rect width="440" height="260" fill="#dff3d8"/>
+    <rect x="0" y="30" width="440" height="200" fill="#8a8f98"/>
+    <rect x="0" y="76" width="440" height="5" fill="#fff" stroke-dasharray="18 14"/>
+    <rect x="0" y="180" width="440" height="5" fill="#fff" stroke-dasharray="18 14"/>
+    <rect x="300" y="128" width="56" height="30" rx="6" fill="#fff" stroke="#111" stroke-width="2.5"/>
+    <rect x="306" y="122" width="44" height="10" rx="3" fill="#1b4f9c"/>
+    <circle cx="316" cy="160" r="9" fill="#111"/><circle cx="344" cy="160" r="9" fill="#111"/>
+    <rect x="290" y="100" width="76" height="10" rx="3" fill="#5b8def">
+      <animate attributeName="opacity" values="1;0.15;1" dur="0.55s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="290" y="100" width="76" height="10" rx="3" fill="#e63946">
+      <animate attributeName="opacity" values="0.15;1;0.15" dur="0.55s" repeatCount="indefinite"/>
+    </rect>
+    <polygon points="282,168 296,178 268,178" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+    <polygon points="310,168 324,178 296,178" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+    <g>
+      <rect x="-22" y="-11" width="44" height="22" rx="6" fill="#4ecb71" stroke="#111" stroke-width="2"/>
+      <rect x="-8" y="-8" width="16" height="16" rx="3" fill="#bfe6ff"/>
+      <animateMotion dur="5s" repeatCount="indefinite" rotate="auto"
+        path="M20 200 L200 200 Q260 200 260 130 L420 130"/>
+    </g>
+    <text x="220" y="252" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="14" font-weight="700" fill="#1b1b2f">Move over a lane — or slow to a safe speed</text>
+  </svg>`
+},
+{
+  id:'sc-railroad', title:'Railroad Crossing', emoji:'🚂',
+  blurb:'Flashing lights mean stop. Never go around a gate.',
+  lesson:'At a railroad crossing with flashing lights, you must stop. Never drive around a lowered gate — the train will arrive faster than you think. If there is more than one track, wait until the passing train is well down the track before starting to cross; a second train may be hidden.',
+  points:['Flashing red lights = STOP.','Never go around a lowered gate.','Multiple tracks = multiple possible trains.','Never stop ON the tracks — make sure there\'s room on the far side first.'],
+  svg:()=>`<svg viewBox="0 0 440 250">
+    <rect width="440" height="250" fill="#dff3d8"/>
+    <rect x="0" y="90" width="440" height="70" fill="#8a8f98"/>
+    <rect x="0" y="122" width="440" height="5" fill="#fff" stroke-dasharray="18 14"/>
+    <rect x="0" y="146" width="440" height="14" fill="#7a6a55"/>
+    <rect x="0" y="168" width="440" height="14" fill="#7a6a55"/>
+    <rect x="0" y="158" width="440" height="4" fill="#c9b89a"/>
+    <rect x="330" y="30" width="14" height="200" fill="#b0b0b0" stroke="#111" stroke-width="2"/>
+    <rect x="300" y="34" width="76" height="24" rx="5" fill="#111"/>
+    <circle cx="322" cy="46" r="9" fill="#e63946"><animate attributeName="opacity" values="1;0.08;1" dur="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="354" cy="46" r="9" fill="#e63946"><animate attributeName="opacity" values="0.08;1;0.08" dur="0.7s" repeatCount="indefinite"/></circle>
+    <rect x="336" y="66" width="118" height="12" rx="4" fill="#fff" stroke="#111" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" values="0 336 72; -78 336 72; -78 336 72; 0 336 72; 0 336 72" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="346" y="66" width="14" height="12" fill="#e63946"><animateTransform attributeName="transform" type="rotate" values="0 336 72; -78 336 72; -78 336 72; 0 336 72; 0 336 72" dur="7s" repeatCount="indefinite"/></rect>
+    <rect x="378" y="66" width="14" height="12" fill="#e63946"><animateTransform attributeName="transform" type="rotate" values="0 336 72; -78 336 72; -78 336 72; 0 336 72; 0 336 72" dur="7s" repeatCount="indefinite"/></rect>
+    <rect x="410" y="66" width="14" height="12" fill="#e63946"><animateTransform attributeName="transform" type="rotate" values="0 336 72; -78 336 72; -78 336 72; 0 336 72; 0 336 72" dur="7s" repeatCount="indefinite"/></rect>
+    <g>
+      <rect x="-30" y="-14" width="60" height="28" rx="6" fill="#333" stroke="#111" stroke-width="2"/>
+      <rect x="-10" y="-11" width="20" height="22" rx="3" fill="#bfe6ff"/>
+      <animateMotion dur="7s" repeatCount="indefinite" rotate="auto" path="M-40 158 L480 158"/>
+    </g>
+    <g transform="translate(80,190)">
+      <rect x="0" y="0" width="50" height="24" rx="6" fill="#5b8def" stroke="#111" stroke-width="2"/>
+      <circle cx="12" cy="26" r="7" fill="#111"/><circle cx="38" cy="26" r="7" fill="#111"/>
+    </g>
+    <text x="105" y="238" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="13" font-weight="700" fill="#1b1b2f">WAIT</text>
+  </svg>`
+},
+{
+  id:'sc-bike', title:'Passing a Bicyclist', emoji:'🚴',
+  blurb:'Give at least 3 feet — or change lanes.',
+  lesson:'Delaware law requires motorists to leave a minimum of three feet of clearance when passing a bicyclist. If the travel lane is too narrow for your vehicle and the bicycle to share safely, you must change lanes — even if that means crossing a double yellow line.',
+  points:['3 feet minimum clearance at all times.','Too narrow? Change lanes — even over a double yellow.','Never honk at a cyclist unless there\'s imminent danger.','Wait for a safe gap rather than squeezing past.'],
+  svg:()=>`<svg viewBox="0 0 440 240">
+    <rect width="440" height="240" fill="#dff3d8"/>
+    <rect x="0" y="60" width="440" height="130" fill="#8a8f98"/>
+    <rect x="0" y="122" width="440" height="6" fill="#ffd93d"/>
+    <rect x="0" y="70" width="440" height="4" fill="#fff" opacity=".5"/>
+    <g transform="translate(250,140)">
+      <circle cx="0" cy="22" r="18" fill="none" stroke="#111" stroke-width="5"/>
+      <circle cx="52" cy="22" r="18" fill="none" stroke="#111" stroke-width="5"/>
+      <path d="M0 22 L20 -8 L44 -8 L52 22 M20 -8 L30 22 M14 -20 L34 -20" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="26" cy="-30" r="8" fill="#111"/>
+    </g>
+    <g>
+      <rect x="-32" y="-15" width="64" height="30" rx="7" fill="#e63946" stroke="#111" stroke-width="2"/>
+      <rect x="-12" y="-11" width="24" height="22" rx="4" fill="#bfe6ff"/>
+      <animateMotion dur="5s" repeatCount="indefinite" rotate="auto" path="M-50 108 L490 108"/>
+    </g>
+    <line x1="215" y1="88" x2="215" y2="170" stroke="#4ecb71" stroke-width="3" stroke-dasharray="6 5"/>
+    <line x1="295" y1="88" x2="295" y2="170" stroke="#4ecb71" stroke-width="3" stroke-dasharray="6 5"/>
+    <text x="255" y="86" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="14" font-weight="700" fill="#2f9e44">3 FEET</text>
+    <text x="220" y="222" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="14" font-weight="700" fill="#1b1b2f">Minimum 3 feet — or change lanes</text>
+  </svg>`
+},
+{
+  id:'sc-rightred', title:'Right Turn on Red', emoji:'➡️',
+  blurb:'Full stop first. Then yield. Then turn.',
+  lesson:'At a steady red light, you may turn right after coming to a COMPLETE stop, unless a sign prohibits it. You must yield to pedestrians in the crosswalk and to oncoming traffic. Left turns on red are allowed only from a one-way street onto another one-way street.',
+  points:['Full stop first — no rolling stops.','Yield to pedestrians and traffic.','Watch for "No Turn on Red" signs.','Left on red only from one-way to one-way.'],
+  svg:()=>`<svg viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="#dff3d8"/>
+    <rect x="150" y="0" width="80" height="300" fill="#8a8f98"/>
+    <rect x="0" y="150" width="400" height="80" fill="#8a8f98"/>
+    <rect x="186" y="0" width="8" height="140" fill="#ffd93d"/>
+    <rect x="0" y="186" width="140" height="8" fill="#ffd93d"/>
+    <rect x="170" y="118" width="44" height="26" fill="#fff" opacity=".85"/>
+    <rect x="170" y="118" width="12" height="26" fill="#fff"/>
+    <rect x="126" y="164" width="26" height="44" fill="#fff" opacity=".85"/>
+    <rect x="40" y="90" width="26" height="70" rx="5" fill="#222"/>
+    <circle cx="53" cy="106" r="9" fill="#e63946"><animate attributeName="opacity" values="1;1;0.2;0.2;1" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="53" cy="126" r="9" fill="#ffd93d"/>
+    <circle cx="53" cy="146" r="9" fill="#4ecb71"/>
+    <g>
+      <rect x="-22" y="-11" width="44" height="22" rx="6" fill="#5b8def" stroke="#111" stroke-width="2"/>
+      <rect x="-8" y="-8" width="16" height="16" rx="3" fill="#bfe6ff"/>
+      <animateMotion dur="6s" repeatCount="indefinite" rotate="auto"
+        path="M190 290 L190 210 L190 190 L260 190 L390 190"/>
+    </g>
+    <g transform="translate(300,130)">
+      <circle cx="0" cy="20" r="8" fill="#111"/>
+      <path d="M0 28 l0 22 l10 18 M0 50 l-10 18 M0 50 l12 18 M0 32 l-12 10 M0 32 l12 8" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="200" y="288" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="14" font-weight="700" fill="#1b1b2f">Stop → Yield → Turn</text>
+  </svg>`
+},
+{
+  id:'sc-workzone', title:'Work Zone', emoji:'🚧',
+  blurb:'Orange signs, flaggers, and double fines.',
+  lesson:'Work zones use orange warning signs and channelizing devices like cones and drums. Speeding fines are doubled. Obey flaggers — they have the authority to direct traffic. Watch for lane shifts, rough pavement, and workers near the road.',
+  points:['Orange = work zone. Slow down.','Fines for speeding in a work zone are DOUBLED.','Obey flaggers as you would a police officer.','Watch for rough surfaces, metal plates, and sudden lane shifts.'],
+  svg:()=>`<svg viewBox="0 0 440 260">
+    <rect width="440" height="260" fill="#dff3d8"/>
+    <rect x="0" y="70" width="440" height="120" fill="#8a8f98"/>
+    <rect x="0" y="128" width="440" height="5" fill="#fff" stroke-dasharray="18 14"/>
+    <rect x="330" y="80" width="70" height="14" rx="4" fill="#ff9f1c" stroke="#111" stroke-width="2"/>
+    <text x="365" y="91" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#111">ROAD WORK</text>
+    <g>
+      <polygon points="100,186 120,186 116,166 104,166" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+      <polygon points="150,186 170,186 166,166 154,166" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+      <polygon points="200,186 220,186 216,166 204,166" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+      <polygon points="250,186 270,186 266,166 254,166" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+      <polygon points="300,186 320,186 316,166 304,166" fill="#ff9f1c" stroke="#111" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(360,150)">
+      <circle cx="0" cy="0" r="10" fill="#f5c542" stroke="#111" stroke-width="2"/>
+      <rect x="-10" y="10" width="20" height="30" rx="3" fill="#ff9f1c" stroke="#111" stroke-width="2"/>
+      <rect x="10" y="-6" width="6" height="26" rx="2" fill="#111"/>
+      <rect x="16" y="-14" width="18" height="18" rx="3" fill="#e63946" stroke="#111" stroke-width="1.5"/>
+      <text x="25" y="0" text-anchor="middle" font-family="Arial" font-size="9" font-weight="900" fill="#fff">STOP</text>
+      <animateTransform attributeName="transform" type="translate" values="360,150; 360,150" dur="2s" repeatCount="indefinite"/>
+    </g>
+    <g>
+      <rect x="-22" y="-11" width="44" height="22" rx="6" fill="#4ecb71" stroke="#111" stroke-width="2"/>
+      <animateMotion dur="6s" repeatCount="indefinite" rotate="auto" path="M-40 105 L240 105 Q300 105 330 150 L480 150"/>
+    </g>
+    <text x="220" y="246" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="14" font-weight="700" fill="#1b1b2f">Orange = workers ahead. Fines double.</text>
+  </svg>`
+}
+];
+
+/* =========================================================================
+   3. FLASHCARD TOPICS (the original modules)
+   ========================================================================= */
+const MODULES = [
+{
+  id:"signals", title:"Traffic Signals", emoji:"🚦", color:"#e63946",
+  blurb:"Red, yellow, green — and every arrow in between.",
+  cards:[
+    {q:"STEADY RED LIGHT", a:"STOP — at the stop line, before the crosswalk, or before entering the intersection. You may turn right on red after a FULL stop unless a sign says no. You may turn left on red only from a one-way street onto another one-way street.", t:"Red = full stop FIRST. Then look. Then go."},
+    {q:"STEADY YELLOW LIGHT", a:"The signal is changing from green to red. PREPARE TO STOP. If you're too close to stop safely, continue through the intersection with care.", t:"Yellow is not 'speed up.' It's 'get ready to stop.'"},
+    {q:"STEADY GREEN LIGHT", a:"PROCEED WITH CAUTION. Go straight or turn unless a sign says otherwise. You MUST yield to pedestrians and to vehicles still in the intersection.", t:"Green means go — after you LOOK."},
+    {q:"FLASHING RED LIGHT", a:"Same as a STOP SIGN. Come to a complete stop, then go only when it's safe.", t:"Flashing red = a stop sign that blinks."},
+    {q:"FLASHING YELLOW LIGHT", a:"SLOW DOWN, be more aware, proceed with caution. Cross traffic is controlled by a flashing red.", t:"Flashing yellow = 'caution, chill out.'"},
+    {q:"DARK / DEAD SIGNAL", a:"No light showing at all? Slow down and prepare to yield to vehicles already in or approaching the intersection.", t:"No lights = treat it like a 4-way stop."},
+    {q:"STEADY GREEN ARROW", a:"Proceed with caution in the direction the arrow points. Yield to pedestrians and vehicles lawfully in the intersection.", t:"An arrow only talks to ONE direction."},
+    {q:"STEADY RED ARROW", a:"FULL STOP. You may NOT go in the direction of the arrow. No turn on red here.", t:"Red arrow = red light for that one direction."},
+    {q:"FLASHING YELLOW ARROW", a:"You may make that movement AFTER you yield to oncoming traffic and pedestrians.", t:"Flashing yellow arrow = yield, then go."},
+    {q:"WALK / DON'T WALK", a:"WALK = pedestrians may go, and drivers must yield. Flashing DON'T WALK = finish crossing if you already started. Steady DON'T WALK = do not start crossing.", t:"Flashing hand = finish. Solid hand = don't start."}
+  ],
+  quiz:[
+    {q:"You're stopped at a steady red light and want to turn right. What do you do?", c:["Turn without stopping if the road is clear","Come to a full stop, yield, then turn if a sign doesn't prohibit it","Wait for a green arrow no matter what","Back up and find another route"], a:"Come to a full stop, yield, then turn if a sign doesn't prohibit it", w:"Right on red is allowed in Delaware after a FULL stop, unless a sign says 'No Turn on Red.'"},
+    {q:"A flashing red light means:", c:["Slow down and keep moving","The same as a stop sign — stop completely, then go when safe","The signal is broken, ignore it","Yield only to cars on your left"], a:"The same as a stop sign — stop completely, then go when safe", w:"Flashing red = stop sign. Full stop, then proceed when safe."},
+    {q:"A flashing yellow light means:", c:["Stop completely","Speed up to clear the intersection","Slow down and proceed with caution","The light is about to turn green"], a:"Slow down and proceed with caution", w:"Flashing yellow tells you to slow down and be more aware. Cross traffic has a flashing red."},
+    {q:"The light turns yellow just as you enter the intersection and you're too close to stop safely. You should:", c:["Slam on the brakes","Continue through the intersection with care","Stop in the middle of the intersection","Back up"], a:"Continue through the intersection with care", w:"If you're too close to stop safely, continue through with care."},
+    {q:"A steady red arrow pointing left means:", c:["Stop — you may not turn left","Turn left after yielding","Turn left only if no one is coming","The left lane is closed"], a:"Stop — you may not turn left", w:"A steady red arrow is a full stop. You may not go in that direction."},
+    {q:"A flashing yellow arrow means:", c:["Stop and wait for green","You may go that direction after yielding to oncoming traffic and pedestrians","The lane is closed","Turn only from a one-way street"], a:"You may go that direction after yielding to oncoming traffic and pedestrians", w:"Flashing yellow arrow = permitted movement, but you must yield first."},
+    {q:"You may turn left on a steady red light when:", c:["Never — it's always illegal","You're turning from a one-way street onto another one-way street and no sign prohibits it","Only between 10 p.m. and 6 a.m.","Only if you have a green arrow"], a:"You're turning from a one-way street onto another one-way street and no sign prohibits it", w:"One-way to one-way left turns on red are allowed after a full stop, unless signed otherwise."},
+    {q:"You come to an intersection and the signal is completely dark. You should:", c:["Drive through — a dark signal means go","Slow down and prepare to yield to vehicles in or approaching the intersection","Stop and wait for it to come back on","Honk and proceed"], a:"Slow down and prepare to yield to vehicles in or approaching the intersection", w:"With no lighted indication, reduce speed and be ready to yield."}
+  ]
+},
+{
+  id:"signs", title:"Signs: Shapes & Colors", emoji:"🛑", color:"#ffd93d",
+  blurb:"Crack the code — shape and color tell you the answer.",
+  cards:[
+    {q:"THE OCTAGON", a:"The 8-sided STOP sign is the ONLY 8-sided sign on the highway. Red with white letters. Full stop at the stop line, crosswalk, or before the intersection.", t:"8 sides = STOP. Nothing else has 8 sides."},
+    {q:"THE TRIANGLE (pointing down)", a:"YIELD. Slow down, look left and right, and yield to pedestrians and vehicles. Stop if you have to. No other sign has this shape.", t:"Downward triangle = the only one of its kind = YIELD."},
+    {q:"THE PENTAGON (5 sides)", a:"School zone or school crossing. Slow down and watch for children. Newer versions may be fluorescent yellow-green.", t:"5 sides = SCHOOL."},
+    {q:"ROUND YELLOW with X and RR", a:"Advance warning that a highway-rail intersection is ahead. Slow down and watch for the crossing.", t:"Round + RR = railroad ahead."},
+    {q:"YELLOW DIAMOND", a:"WARNING signs. They warn of a special situation or hazard ahead — curves, bumps, merging traffic, deer, slippery roads, and more.", t:"Yellow diamond = 'heads up, something's coming.'"},
+    {q:"WHITE RECTANGLE", a:"REGULATORY signs. These tell you the law: speed limits, no turns, no parking, do not pass, one way.", t:"White rectangle = the rule book."},
+    {q:"GREEN RECTANGLE", a:"GUIDE signs. Directions and destinations — which way to Wilmington, Dover, and how far.", t:"Green = 'go this way.'"},
+    {q:"BLUE RECTANGLE", a:"Motorist services: gas, food, lodging, rest areas, hospitals.", t:"Blue = services."},
+    {q:"BROWN RECTANGLE", a:"Recreation and cultural interest signs — state parks, historic sites.", t:"Brown = parks and history."},
+    {q:"ORANGE DIAMOND", a:"WORK ZONE signs. Road work, lane closures, detours. Fines for speeding in a work zone are DOUBLED.", t:"Orange = workers ahead. Double fines."},
+    {q:"THE INTERSTATE SHIELD", a:"Red, white, and blue shield. Top says INTERSTATE in white on red; the rest is blue with the route number.", t:"Red-white-blue shield = interstate."},
+    {q:"U.S. ROUTE / STATE ROUTE", a:"U.S. routes use the white shield with black numbers. Delaware state routes use a white circle with black numbers.", t:"Shield = US. Circle = state."}
+  ],
+  quiz:[
+    {q:"Which shape is used ONLY for a stop sign?", c:["Triangle","Octagon","Pentagon","Diamond"], a:"Octagon", w:"The 8-sided octagon is the only 8-sided sign on the road — stop."},
+    {q:"A downward-pointing triangle means:", c:["Stop","Yield","School zone","Railroad ahead"], a:"Yield", w:"The yield sign is the only sign with that shape. Slow down and yield, stopping if needed."},
+    {q:"A five-sided (pentagon) sign means:", c:["Yield","School zone or school crossing","Construction","No passing"], a:"School zone or school crossing", w:"The 5-sided pentagon is used only to warn of schools and school crossings."},
+    {q:"A round yellow sign with a black X and the letters RR means:", c:["Railroad crossing ahead","No U-turn","Roundabout ahead","Rest area"], a:"Railroad crossing ahead", w:"It's the advance warning sign placed before a highway-rail intersection."},
+    {q:"Orange diamond signs in a work zone mean:", c:["Recreation area","Road work or construction ahead","Motorist services","School zone"], a:"Road work or construction ahead", w:"Orange = work zone. Speeding fines are doubled there."},
+    {q:"Green rectangular signs give you:", c:["Warnings about hazards","Directions and destinations","Laws and regulations","Rest area locations"], a:"Directions and destinations", w:"Guide signs are green with white letters and show where you're headed."},
+    {q:"Blue rectangular signs show:", c:["Motorist services like gas, food, and lodging","Construction zones","Park locations","Speed limits"], a:"Motorist services like gas, food, and lodging", w:"Blue = motorist services. Brown = recreation."},
+    {q:"Yellow diamond signs are generally:", c:["Regulatory","Warning signs","Guide signs","Service signs"], a:"Warning signs", w:"Yellow diamonds warn you that a special situation or hazard is ahead."},
+    {q:"An interstate route marker looks like:", c:["A white circle with black numbers","A red, white, and blue shield","An orange diamond","A green rectangle"], a:"A red, white, and blue shield", w:"The interstate shield: INTERSTATE in white on red at the top, blue with the route number below."},
+    {q:"Brown rectangular signs are used for:", c:["Recreation and parks","Railroad crossings","Work zones","Motorist services"], a:"Recreation and parks", w:"Brown signs point to state parks, historic sites, and recreation areas."}
+  ]
+},
+{
+  id:"markings", title:"Road Markings", emoji:"🎨", color:"#a78bfa",
+  blurb:"Yellow means opposite. White means same direction. Simple.",
+  cards:[
+    {q:"YELLOW LINES", a:"Yellow lines separate traffic moving in OPPOSITE directions.", t:"Yellow = 'yikes, they're coming at me.'"},
+    {q:"WHITE LINES", a:"White lines separate traffic moving in the SAME direction, or mark the edge of the road.", t:"White = 'we're all going the same way.'"},
+    {q:"BROKEN vs SOLID", a:"BROKEN line = you may cross it to pass or change lanes if it's safe. SOLID line = discouraged (white) or not allowed (yellow on your side). DOUBLE SOLID = no crossing, period.", t:"Broken = okay. Solid = no. Double solid = absolutely not."},
+    {q:"SOLID + BROKEN YELLOW", a:"You may pass only if the BROKEN yellow line is on YOUR side. If the solid line is on your side, you may not pass.", t:"Look down. Whose line is broken? That side can pass."},
+    {q:"DOUBLE SOLID WHITE", a:"Prohibits lane changing entirely.", t:"Two solid whites = stay put."},
+    {q:"EDGE LINES", a:"Solid white lines along the side of the road show where the outside edge of the travel lane is.", t:"White edge line = the shoulder starts here."},
+    {q:"CROSSWALKS & STOP LINES", a:"When you must stop for a sign or signal, stop before the stop line, or before the crosswalk if there's no stop line. You must yield to pedestrians in a crosswalk — and not all crosswalks are marked.", t:"Stop line first, then crosswalk, then intersection."},
+    {q:"REVERSIBLE LANES", a:"Marked by double broken yellow lines with overhead signals. Green arrow = you can use the lane. Red X = you cannot. Yellow X = the lane is changing, get out as soon as it's safe.", t:"Green arrow in, red X out."},
+    {q:"SHARED CENTER LEFT-TURN LANE", a:"Marked by a solid yellow and broken yellow line on each side, with left-turn arrows alternating for both directions. It's for left turns from BOTH directions.", t:"Center lane with arrows both ways = left turns only."}
+  ],
+  quiz:[
+    {q:"Yellow lines separate traffic moving:", c:["In the same direction","In opposite directions","Only at intersections","Only on highways"], a:"In opposite directions", w:"Yellow = opposite directions. White = same direction."},
+    {q:"Broken white lines between lanes mean:", c:["You may never cross","You may cross to change lanes when it's safe","The lane is ending","You may park there"], a:"You may cross to change lanes when it's safe", w:"A broken white line means you can cross if it's safe to do so."},
+    {q:"Double solid white lines mean:", c:["You may pass if clear","Lane changing is prohibited","The road is one-way","You may turn left"], a:"Lane changing is prohibited", w:"Double solid white lines prohibit lane changing."},
+    {q:"There's a solid yellow line and a broken yellow line between opposing lanes, and the solid line is on YOUR side. You may:", c:["Pass if it's safe","Not pass","Pass only at night","Pass if you honk"], a:"Not pass", w:"You may only pass when the broken yellow line is on your side."},
+    {q:"A shared center lane with solid and broken yellow lines on each side is used for:", c:["Passing slower traffic","Left turns from both directions","Parking","Buses only"], a:"Left turns from both directions", w:"It's a shared center left-turn lane, used by traffic going both ways."},
+    {q:"A solid white line along the side of the road is:", c:["The outside edge of the travel lane","A passing zone","A bike lane only","A no-parking zone"], a:"The outside edge of the travel lane", w:"Edge lines mark where the travel lane ends."},
+    {q:"A red X over a travel lane means:", c:["You may use the lane","You cannot use that lane","The lane is for buses","The lane is about to open"], a:"You cannot use that lane", w:"Red X = do not use. Green arrow = you may use it."},
+    {q:"A steady yellow X over a lane means:", c:["The lane is closed forever","The lane's use is changing — move out when safe","You may drive in it freely","It's a carpool lane"], a:"The lane's use is changing — move out when safe", w:"A yellow X warns that the lane's direction is about to change."}
+  ]
+},
+{
+  id:"row", title:"Right-of-Way", emoji:"🤝", color:"#3ddad7",
+  blurb:"Nobody 'has' it. Somebody always has to yield.",
+  cards:[
+    {q:"THE BIG IDEA", a:"Delaware law does not give anyone the right-of-way. It says who must YIELD it. And if you can prevent a crash by yielding — even when it wasn't your turn — that's the right thing to do.", t:"Nobody owns it. Everybody can give it."},
+    {q:"NO SIGNS, NO SIGNALS", a:"At an intersection with no signs, signals, or markings, yield to vehicles coming from your RIGHT.", t:"No rules posted? The person on your right goes."},
+    {q:"FOUR-WAY STOP", a:"The driver who stopped first goes first. If two arrive at the same time, the driver on the right goes first.", t:"First there, first gone. Tie? Right goes."},
+    {q:"LEFT TURNS", a:"Drivers turning left must yield to oncoming vehicles going straight ahead.", t:"Left turn = you wait for the straight-goers."},
+    {q:"DRIVEWAYS, ALLEYS, PARKING LOTS", a:"Drivers entering a road from a driveway, alley, or roadside must yield to vehicles already on the main road. Also yield to pedestrians on the sidewalk.", t:"You're the guest — let the main road go first."},
+    {q:"ROUNDABOUTS", a:"Drivers entering a traffic circle or roundabout must yield to drivers already in the circle. Travel counterclockwise and keep to the right of the center island.", t:"Circle traffic wins. Enter when there's a gap."},
+    {q:"PEDESTRIANS", a:"Pedestrians have the right-of-way in a marked OR unmarked crosswalk, when the WALK signal is in their favor, and on a sidewalk crossing a driveway. Pedestrians using a guide dog or white cane have ABSOLUTE right-of-way — never honk.", t:"Crosswalk = marked or not, they go first."},
+    {q:"EMERGENCY VEHICLES", a:"When a police car, fire engine, or ambulance approaches with lights or siren, pull to the right edge of the road and stop. If you're IN an intersection, drive through it first, then pull over.", t:"Clear the intersection first. THEN pull right."},
+    {q:"NEVER BLOCK THE BOX", a:"Don't enter an intersection unless you can get all the way through it. If you get stuck when the light turns red, you're blocking traffic — and you can get a ticket.", t:"Don't enter if you can't exit."}
+  ],
+  quiz:[
+    {q:"At an intersection with no signs or signals, you must yield to:", c:["Vehicles coming from your left","Vehicles coming from your right","Whoever honks first","Nobody — you have the right-of-way"], a:"Vehicles coming from your right", w:"With no controls, yield to the right."},
+    {q:"At a 4-way stop, who goes first?", c:["The biggest vehicle","The driver who stopped first; if tied, the driver on the right","Whoever is turning left","Whoever flashes their lights"], a:"The driver who stopped first; if tied, the driver on the right", w:"First to stop goes first. Tie goes to the right."},
+    {q:"You're turning left at an intersection. You must yield to:", c:["Nobody if you have a green light","Oncoming vehicles going straight","Only bicycles","Only pedestrians"], a:"Oncoming vehicles going straight", w:"Left turns always yield to oncoming traffic going straight."},
+    {q:"You're pulling out of a driveway onto a main road. You must yield to:", c:["Only cars going the same direction as you","Vehicles already on the main road and pedestrians on the sidewalk","Nobody, if you go fast enough","Only emergency vehicles"], a:"Vehicles already on the main road and pedestrians on the sidewalk", w:"Entering from a driveway, alley, or roadside — you yield to the main road."},
+    {q:"A blind pedestrian with a white cane is crossing. You should:", c:["Honk so they know you're there","Stop and wait — do not honk","Drive around them","Flash your lights"], a:"Stop and wait — do not honk", w:"Blind pedestrians have absolute right-of-way. Honking can confuse or frighten them."},
+    {q:"You're stopped in an intersection when an ambulance with lights and siren approaches. You should:", c:["Stop right where you are","Back up out of the intersection","Clear the intersection, then pull to the right and stop","Speed away"], a:"Clear the intersection, then pull to the right and stop", w:"Get out of the intersection first — then pull to the right edge and stop."},
+    {q:"Drivers entering a roundabout must yield to:", c:["Traffic already in the roundabout","Traffic on their left only","Nobody","Trucks only"], a:"Traffic already in the roundabout", w:"Yield to the circle. Then enter counterclockwise and keep right of the island."},
+    {q:"Pedestrians have the right-of-way:", c:["Only in marked crosswalks","In marked OR unmarked crosswalks","Only when a crossing guard is present","Never — cars always go first"], a:"In marked OR unmarked crosswalks", w:"Not all crosswalks are marked. Be alert for pedestrians at every intersection."},
+    {q:"You may enter an intersection:", c:["Whenever you have a green light, even if traffic is backed up","Only when you can get all the way through without stopping","Only if you're turning right","Only during rush hour"], a:"Only when you can get all the way through without stopping", w:"Never block the box. You can get a ticket for blocking an intersection."}
+  ]
+},
+{
+  id:"bus", title:"School Buses", emoji:"🚌", color:"#ffd93d",
+  blurb:"Yellow flashing = get ready. Red flashing = STOP.",
+  cards:[
+    {q:"YELLOW FLASHING LIGHTS", a:"The bus is about to stop. They come on about 10 seconds before the red lights. Slow down and anticipate a stop — kids may be waiting or running to board.", t:"Yellow = 'a stop is coming.'"},
+    {q:"RED FLASHING LIGHTS + STOP ARM", a:"STOP. You must not proceed until the red lights stop flashing and the stop arm is retracted. Then proceed cautiously.", t:"Red + arm out = everybody stops."},
+    {q:"THE 4-LANE EXCEPTION", a:"On a highway with FOUR OR MORE lanes, if the school bus is on the OPPOSITE side of the road, you do NOT have to stop — but you must proceed slowly and with caution.", t:"4+ lanes and you're on the other side? Slow down, don't stop."},
+    {q:"FEWER THAN 4 LANES", a:"On a road with fewer than 4 lanes, BOTH directions must stop for a school bus with red lights flashing.", t:"Under 4 lanes = both sides stop."},
+    {q:"THE PENALTIES", a:"Passing a stopped school bus with red lights flashing: first offense $115–$230 and/or 30–60 days in jail. License suspension: 1 month (1st), 6 months (2nd), 1 year (3rd). It's also 6 points.", t:"6 points. Big fine. Jail time. Not worth it."},
+    {q:"WHO GETS THE TICKET", a:"If a police officer, school bus operator, or crossing guard witnesses the violation and the driver isn't identifiable, the registered owner of the vehicle is assumed to have committed it.", t:"Your car, your ticket."}
+  ],
+  quiz:[
+    {q:"A school bus on a two-lane road has its red lights flashing and stop arm out. You must:", c:["Stop only if you're behind it","Stop from both directions until the lights stop and the arm retracts","Slow to 15 mph and pass","Honk and continue"], a:"Stop from both directions until the lights stop and the arm retracts", w:"On roads with fewer than 4 lanes, both directions must stop."},
+    {q:"On a divided highway with 4 or more lanes, a school bus on the OPPOSITE side stops with red lights. You must:", c:["Stop completely","Proceed slowly with caution","Change lanes","Turn on your hazard lights"], a:"Proceed slowly with caution", w:"The 4-or-more-lane exception means you don't stop, but you do slow down and stay alert."},
+    {q:"Yellow flashing lights on a school bus mean:", c:["Stop immediately","The bus is about to stop — slow down and be ready","The bus is broken down","You may pass quickly"], a:"The bus is about to stop — slow down and be ready", w:"Yellow comes on about 10 seconds before the red lights."},
+    {q:"Passing a stopped school bus with red lights flashing can result in:", c:["Just a warning","A fine, jail time, points, and a license suspension","A $10 ticket","Nothing if no children are visible"], a:"A fine, jail time, points, and a license suspension", w:"First offense: $115–$230 and/or 30–60 days, 1-month suspension, and 6 points."},
+    {q:"How many points do you get for passing a stopped school bus?", c:["2","3","6","10"], a:"6", w:"Passing a stopped school bus is 6 points — the same as reckless driving."}
+  ]
+},
+{
+  id:"speed", title:"Speed Limits", emoji:"🚗", color:"#5b8def",
+  blurb:"The numbers you need to memorize. For real.",
+  cards:[
+    {q:"SCHOOL ZONE", a:"20 mph when children are present.", t:"Kids = 20."},
+    {q:"BUSINESS & RESIDENTIAL DISTRICTS", a:"25 mph.", t:"Downtown and neighborhoods = 25."},
+    {q:"TWO-LANE ROADS", a:"50 mph.", t:"Two lanes = 50."},
+    {q:"DIVIDED ROADS & 4+ LANES", a:"55 mph.", t:"Divided / 4+ lanes = 55."},
+    {q:"CONTROLLED ACCESS HIGHWAYS", a:"55 mph on turnpikes and expressways.", t:"Turnpike & expressway = 55."},
+    {q:"ROUTE 1 AND I-495", a:"65 mph.", t:"Route 1 and I-495 = 65."},
+    {q:"THE GENERAL RULE", a:"You must never drive faster than is reasonable for existing conditions. It is NOT always lawful to drive the posted limit — if it's raining, foggy, or icy, you must slow down.", t:"The posted limit is a ceiling, not a target."},
+    {q:"MINIMUM SPEED", a:"Don't drive so slowly that you impede normal traffic, unless safety or the law requires it. If cars pile up behind you, pull over and let them pass.", t:"Too slow is also a problem."},
+    {q:"ADVISORY SPEED SIGNS", a:"Black letters on YELLOW — these are recommended speeds, often under a warning sign. They're not legal limits, but if you exceed one and crash, you can be charged with violating the general speed restriction.", t:"Yellow speed sign = recommended, not required."},
+    {q:"WORK ZONE FINES", a:"Speeding fines in a work zone are DOUBLED.", t:"Orange barrels = double the ticket."}
+  ],
+  quiz:[
+    {q:"What's the speed limit in a school zone when children are present?", c:["15 mph","20 mph","25 mph","30 mph"], a:"20 mph", w:"School zones: 20 mph when children are present."},
+    {q:"What's the speed limit in a business or residential district?", c:["20 mph","25 mph","35 mph","45 mph"], a:"25 mph", w:"Business and residential districts are both 25 mph."},
+    {q:"What's the speed limit on a two-lane road?", c:["35 mph","45 mph","50 mph","55 mph"], a:"50 mph", w:"Two-lane roads: 50 mph."},
+    {q:"What's the speed limit on Route 1 and I-495?", c:["55 mph","60 mph","65 mph","70 mph"], a:"65 mph", w:"Route 1 and I-495 are posted at 65 mph."},
+    {q:"What's the speed limit on divided roads and roads with four or more lanes?", c:["45 mph","50 mph","55 mph","65 mph"], a:"55 mph", w:"Divided roads and roads with 4+ lanes: 55 mph."},
+    {q:"You may drive faster than the posted speed limit:", c:["When passing","Never — the posted limit is the legal maximum and you must slow for conditions","At night when the road is empty","If you're late"], a:"Never — the posted limit is the legal maximum and you must slow for conditions", w:"Posted limits are for ideal conditions. Rain, fog, ice, or heavy traffic means slow down."},
+    {q:"Fines for speeding in a work zone are:", c:["The same as anywhere","Doubled","Tripled","Waived"], a:"Doubled", w:"Work zone speeding fines are doubled."},
+    {q:"An advisory speed sign has:", c:["Black letters on a white background","Black letters on a yellow background","White letters on green","Red letters on white"], a:"Black letters on a yellow background", w:"Advisory speeds are yellow. Legal speed limits are white with black letters."}
+  ]
+},
+{
+  id:"parking", title:"Parking Rules", emoji:"🅿️", color:"#ff7eb6",
+  blurb:"The distance numbers they love to ask about.",
+  cards:[
+    {q:"15 FEET", a:"Don't park within 15 feet of a FIRE HYDRANT.", t:"Hydrant = 15."},
+    {q:"20 FEET", a:"Don't park within 20 feet of a crosswalk at an intersection, or within 20 feet of a driveway entrance to a fire station.", t:"Crosswalk & fire station driveway = 20."},
+    {q:"30 FEET", a:"Don't park within 30 feet of a flashing beacon, stop sign, or traffic signal.", t:"Stop sign / signal = 30."},
+    {q:"50 FEET", a:"Don't park within 50 feet of a railroad crossing.", t:"Tracks = 50."},
+    {q:"75 FEET", a:"On the OPPOSITE side of the street, don't park within 75 feet of a fire station entrance when signs are posted.", t:"Across from the fire station = 75."},
+    {q:"PARALLEL PARKING", a:"Park parallel to and within 12 INCHES of the curb. Turn off the engine, lock the ignition, remove the key, and set the brakes.", t:"12 inches from the curb."},
+    {q:"PARKING ON A HILL", a:"DOWNHILL: turn your front wheels TOWARD the curb. UPHILL with a curb: turn wheels AWAY from the curb. UPHILL with NO curb: turn wheels TOWARD the edge of the road (right).", t:"Downhill → toward. Uphill with curb → away. Uphill no curb → right."},
+    {q:"PARKED AT NIGHT", a:"If you park on the shoulder or side of a highway from sunset to sunrise, or when you can't see 1000 feet, turn on your parking lights or 4-way flashers.", t:"Dark + parked on the road = lights on."},
+    {q:"OPENING YOUR DOOR", a:"Never open a door into traffic. Use the curb-side door when you can. Watch for bicyclists — a car door can seriously injure them.", t:"Always check for bikes before you open up."},
+    {q:"OTHER NO-PARKING SPOTS", a:"No parking on a sidewalk, in an intersection, on a crosswalk, on a bridge, in a tunnel, in a fire lane, or on the roadway side of another parked car.", t:"If it's a bad place to be, it's a bad place to park."}
+  ],
+  quiz:[
+    {q:"How close may you legally park to a fire hydrant?", c:["5 feet","10 feet","15 feet","25 feet"], a:"15 feet", w:"Fire hydrant = 15 feet."},
+    {q:"How close may you park to a crosswalk at an intersection?", c:["10 feet","20 feet","30 feet","50 feet"], a:"20 feet", w:"Crosswalk at an intersection = 20 feet."},
+    {q:"How close may you park to a stop sign or traffic signal?", c:["15 feet","20 feet","30 feet","50 feet"], a:"30 feet", w:"Flashing beacon, stop sign, or traffic signal = 30 feet."},
+    {q:"How close may you park to a railroad crossing?", c:["20 feet","30 feet","50 feet","100 feet"], a:"50 feet", w:"Railroad crossing = 50 feet."},
+    {q:"When parallel parking, how close to the curb should you be?", c:["Within 6 inches","Within 12 inches","Within 18 inches","Within 2 feet"], a:"Within 12 inches", w:"Within 12 inches of the curb."},
+    {q:"When parked downhill, your front wheels should point:", c:["Toward the curb","Away from the curb","Straight ahead","Doesn't matter"], a:"Toward the curb", w:"Downhill: wheels toward the curb, so the car rolls into the curb if the brake fails."},
+    {q:"When parked uphill WITH a curb, your front wheels should point:", c:["Toward the curb","Away from the curb","Straight","Toward the center line"], a:"Away from the curb", w:"Uphill with a curb: wheels away from the curb, so the tire catches the curb if it rolls."},
+    {q:"When parked uphill with NO curb, your front wheels should point:", c:["Toward the edge of the road (right)","Toward the center line","Straight ahead","Any direction"], a:"Toward the edge of the road (right)", w:"Uphill with no curb: turn wheels toward the edge of the highway."},
+    {q:"You park on the shoulder at night. You must:", c:["Leave your headlights on high beam","Turn on your parking lights or 4-way flashers","Nothing special","Leave the engine running"], a:"Turn on your parking lights or 4-way flashers", w:"Parked on a highway from sunset to sunrise? Lights on."}
+  ]
+},
+{
+  id:"impaired", title:"Alcohol & Drugs", emoji:"🍺", color:"#e63946",
+  blurb:"The rules, the numbers, and the cold hard facts.",
+  cards:[
+    {q:"THE LEGAL LIMIT", a:"In Delaware, a BAC of .08 or greater — OR the presence of any illicit or recreational drug — is conclusive evidence that a driver is under the influence. But you can still be charged with DUI below .08.", t:".08 is the line. Below it can still be DUI."},
+    {q:"ZERO TOLERANCE (UNDER 21)", a:"Underage drivers with a BAC of .02 can have their license revoked. First offense: 2 months. Each subsequent: 6 to 12 months. Underage consumption or possession can also result in revocation — even if you weren't driving.", t:"Under 21? .02 is the limit. Basically zero."},
+    {q:"IMPLIED CONSENT LAW", a:"When you drive in Delaware, you automatically consent to a chemical test of breath, blood, or urine if arrested for DUI. Refusing means your license can be revoked for 1 to 2 years, depending on prior offenses.", t:"Refusing the test = losing your license anyway."},
+    {q:"WHAT SOBERS YOU UP?", a:"TIME. That's it. Coffee, fresh air, exercise, cold showers, and food do not sober you up. Food only slows how fast alcohol gets into your blood.", t:"Only time. Nothing else works."},
+    {q:"ONE DRINK IS ONE DRINK", a:"12 oz of beer, 5 oz of wine, and 1.5 oz of 80-proof liquor all contain the SAME amount of alcohol. Specialty drinks can contain several drinks' worth.", t:"Beer, wine, shot — same alcohol."},
+    {q:"DRUGS + ALCOHOL", a:"Never drink while taking other drugs. Prescription and over-the-counter drugs (cold medicine, allergy pills, nerve pills) can make you drowsy and impair driving. Combining them with alcohol intensifies the effects — and can be deadly.", t:"Read the label. If unsure, ask a pharmacist. Never mix."},
+    {q:"DUI PENALTIES — FIRST OFFENSE", a:"License loss by DMV: 12 months (BAC under .15 or drugs), 18 months (.15–.19), 24 months (.20+ or refusing the test). Court: $500–$1,500 fine and up to 12 months in prison.", t:"First offense is already serious."},
+    {q:"CDL DRIVERS", a:"A commercial driver with a BAC of .04 or more — or who refuses a test — is disqualified from driving a commercial vehicle for one year. A second conviction can mean lifetime disqualification.", t:"CDL limit is .04, not .08."}
+  ],
+  quiz:[
+    {q:"In Delaware, a BAC of ___ or higher is conclusive evidence of DUI.", c:[".02",".05",".08",".10"], a:".08", w:"A BAC of .08 or greater — or any illicit/recreational drug — is conclusive evidence of DUI."},
+    {q:"Delaware's zero tolerance law says a driver under 21 can have their license revoked at a BAC of:", c:[".00",".02",".05",".08"], a:".02", w:"Zero tolerance: .02 for drivers under 21. First offense = 2-month revocation."},
+    {q:"If you refuse a chemical test after a DUI arrest:", c:["Nothing happens","Your license can be revoked under the Implied Consent Law","You automatically go free","You get a warning"], a:"Your license can be revoked under the Implied Consent Law", w:"Refusal = revocation of 1 to 2 years, depending on priors."},
+    {q:"What actually sobers you up?", c:["Coffee","A cold shower","Time","Fresh air and exercise"], a:"Time", w:"Only time. Coffee, showers, food, and fresh air do not sober you up."},
+    {q:"Which of these contains the same amount of alcohol?", c:["12 oz beer, 5 oz wine, and 1.5 oz of 80-proof liquor","12 oz beer and 12 oz wine","5 oz beer and 5 oz wine","Only beer and wine are equivalent"], a:"12 oz beer, 5 oz wine, and 1.5 oz of 80-proof liquor", w:"All three are one standard drink and contain the same alcohol."},
+    {q:"A commercial driver with a BAC of ___ or more is disqualified for one year.", c:[".02",".04",".08",".10"], a:".04", w:"CDL limit is .04 — lower than the .08 limit for regular drivers."},
+    {q:"Which of these can impair your driving?", c:["Only illegal drugs","Prescription and over-the-counter drugs, too","Only alcohol","Nothing if you've eaten first"], a:"Prescription and over-the-counter drugs, too", w:"Cold medicine, allergy pills, and nerve pills can all make you drowsy and impair driving."}
+  ]
+},
+{
+  id:"workzone", title:"Work Zones & Move Over", emoji:"🚧", color:"#ff9f1c",
+  blurb:"Orange means slow down. Move over means move over.",
+  cards:[
+    {q:"WORK ZONE SIGNS", a:"Traffic warning signs in work zones are usually ORANGE and diamond shaped. Slow down and pay close attention to signs, cones, and flaggers.", t:"Orange = workers ahead."},
+    {q:"THE FINES", a:"Fines for exceeding the speed limit in a work zone are DOUBLED.", t:"Double the ticket in orange zones."},
+    {q:"FLAGGERS", a:"Flaggers wear yellow-green vests and use red flags or STOP/SLOW paddles. Obey their directions — they have the same authority as a police officer directing traffic.", t:"The person with the paddle is in charge."},
+    {q:"MOVE OVER LAW — MULTI-LANE ROAD", a:"When approaching a stationary emergency vehicle, tow truck, or DelDOT vehicle with flashing lights, MOVE OVER a lane from the stopped vehicle until you're safely past.", t:"Multi-lane = change lanes."},
+    {q:"MOVE OVER LAW — TWO-LANE ROAD", a:"On a two-lane road, SLOW DOWN below the posted speed limit until you've completely passed the stopped vehicle.", t:"Two lanes = slow way down."},
+    {q:"WHO IT APPLIES TO", a:"Emergency vehicles, DelDOT vehicles, tow trucks, and ANY stationary vehicle displaying hazard lights, road flares, traffic cones, caution signs, or other warning signals.", t:"Not just police — tow trucks and hazard lights count too."},
+    {q:"APPROACHING AN EMERGENCY VEHICLE", a:"When an authorized emergency vehicle approaches with a siren or flashing red/blue lights, pull to the right-hand edge or curb, clear of any intersections, and stop. If you're in an intersection, drive through it first.", t:"Pull right. Stop. Stay put until it passes."}
+  ],
+  quiz:[
+    {q:"What color are work zone warning signs?", c:["Yellow","Orange","Green","Blue"], a:"Orange", w:"Work zone signs are orange and diamond shaped."},
+    {q:"You're on a multi-lane road and see a stationary tow truck with flashing amber lights. You must:", c:["Speed up to pass quickly","Move over a lane, or slow to a safe speed if you can't","Honk and continue","Stop completely"], a:"Move over a lane, or slow to a safe speed if you can't", w:"Move over on multi-lane roads. If you can't, slow to a safe speed."},
+    {q:"On a two-lane road, when passing a stopped emergency vehicle, you should:", c:["Maintain your speed","Speed up","Slow down below the posted speed limit","Stop and wait"], a:"Slow down below the posted speed limit", w:"Two-lane roads: slow below the posted limit until you've completely passed."},
+    {q:"An emergency vehicle with lights and siren approaches from behind. You should:", c:["Speed up to get out of the way","Pull to the right edge of the road and stop","Stop in the middle of the road","Keep driving normally"], a:"Pull to the right edge of the road and stop", w:"Pull to the right edge, clear of intersections, and stop."},
+    {q:"The Move Over law applies to:", c:["Only police cars","Emergency vehicles, tow trucks, DelDOT vehicles, and any vehicle with warning signals","Only ambulances","Only fire trucks"], a:"Emergency vehicles, tow trucks, DelDOT vehicles, and any vehicle with warning signals", w:"It covers a lot more than just police cars."}
+  ]
+},
+{
+  id:"sharing", title:"Sharing the Road", emoji:"🚴", color:"#4ecb71",
+  blurb:"Bikes, motorcycles, walkers, and big rigs.",
+  cards:[
+    {q:"BICYCLES — THE 3-FOOT RULE", a:"When passing a bicyclist, leave at least 3 FEET of clearance at all times. If the lane is too narrow to share, you must change lanes — even if that means crossing a double yellow line.", t:"3 feet minimum. Too narrow? Change lanes."},
+    {q:"DON'T HONK AT BIKES", a:"Motorists are forbidden from honking at bicyclists unless there is an imminent danger.", t:"Honking can startle a cyclist into traffic."},
+    {q:"BIKES AT STOP SIGNS", a:"In Delaware, bicyclists may yield at stop signs after carefully looking for other vehicles — they are no longer required to make a full stop.", t:"Bikes slow and yield at stop signs."},
+    {q:"MOTORCYCLES", a:"Motorcycles are entitled to the same full lane width as any vehicle. NEVER move into the same lane alongside a motorcycle, even if the lane is wide. Follow at 2 seconds under 40 mph, and 4 seconds above 40 mph.", t:"Never share a lane with a motorcycle."},
+    {q:"PEDESTRIANS", a:"Yield to pedestrians in a crosswalk. Never pass a vehicle that has stopped to let a pedestrian cross. Where there's no sidewalk, pedestrians should walk on the shoulder FACING oncoming traffic. At night, they must carry a light or reflector.", t:"Walk facing traffic. Drive facing forward."},
+    {q:"TRUCKS — THE NO-ZONE", a:"Trucks have huge blind spots: directly behind, directly in front, and on both sides. If you can't see the truck driver's face in their mirror, they can't see you.", t:"No-Zone = no truck driver can see you."},
+    {q:"PASSING A TRUCK", a:"Don't cut in front of a truck. Wait until you can see the truck's cab in your rearview mirror before pulling back in. Trucks need much more room to stop.", t:"See the cab in your mirror? Now you can come back."},
+    {q:"TRUCK WIDE TURNS", a:"Trucks swing wide to the left to make a right turn. Never squeeze between a truck and the curb — you'll be in a blind spot.", t:"Right turn = they swing left first. Don't sneak in."},
+    {q:"RAILROAD CROSSINGS", a:"A crossbuck sign means the same as a yield sign — you must yield to trains. Flashing lights mean stop. Never drive around a lowered gate. Never try to beat a train.", t:"Trains are bigger and faster than they look. Always expect one."}
+  ],
+  quiz:[
+    {q:"How much room must you give a bicyclist when passing?", c:["1 foot","2 feet","At least 3 feet","5 feet"], a:"At least 3 feet", w:"At least 3 feet at all times."},
+    {q:"The travel lane is too narrow for you and a bicycle to share. You must:", c:["Squeeze past anyway","Change lanes to pass, even if you cross a double yellow line","Honk and wait","Drive on the shoulder"], a:"Change lanes to pass, even if you cross a double yellow line", w:"If the lane is too narrow to share, you must change lanes — even over a double yellow."},
+    {q:"Following a motorcycle at speeds above 40 mph, you should leave:", c:["A 1-second gap","A 2-second gap","A 4-second gap","No gap needed"], a:"A 4-second gap", w:"2 seconds under 40 mph, 4 seconds above 40 mph."},
+    {q:"Which of these is a truck's No-Zone?", c:["Only directly behind the truck","Directly behind, directly in front, and both sides","Only on the right side","Only in the next lane"], a:"Directly behind, directly in front, and both sides", w:"Trucks have deep blind spots in all four of those areas."},
+    {q:"A crossbuck sign at a railroad crossing means:", c:["Stop completely and wait","Yield to trains, the same as a yield sign","The crossing is closed","Honk before crossing"], a:"Yield to trains, the same as a yield sign", w:"A crossbuck has the same meaning as a yield sign."},
+    {q:"In normal conditions, how many seconds should you stay behind the vehicle ahead?", c:["1 second","2 seconds","3 seconds","5 seconds"], a:"3 seconds", w:"The three-second rule works at any speed."},
+    {q:"You may honk at a bicyclist:", c:["Whenever you want to pass","Only when there is imminent danger","To let them know you're behind them","Never"], a:"Only when there is imminent danger", w:"Honking at cyclists is forbidden unless there's imminent danger."}
+  ]
+},
+{
+  id:"safety", title:"Belts, Lights & Space", emoji:"🛡️", color:"#5b8def",
+  blurb:"The stuff that saves your life — and shows up on the test.",
+  cards:[
+    {q:"SEAT BELTS", a:"Delaware law requires ALL occupants of a vehicle to be properly restrained in a seat belt or child safety seat. Officers can pull you over just for seeing an unbuckled occupant. The DRIVER gets the ticket for any unrestrained occupant.", t:"Everybody buckles. Driver pays the fine."},
+    {q:"CHILD RESTRAINTS", a:"Under 2 years AND under 30 lbs: rear-facing car seat. Under 4 years AND under 40 lbs: harnessed car seat. Then a booster seat until the child reaches the manufacturer's height/weight max. A child under 12 or under 5'5\" should not sit in the front seat.", t:"2 and 30 → rear-facing. 4 and 40 → harnessed."},
+    {q:"HEADLIGHT LAW", a:"Headlights must be on: after sunset and before sunrise, any time you can't see 1000 feet ahead, and ANY time you use your windshield wipers.", t:"Wipers on = headlights on. It's the law."},
+    {q:"HIGH BEAMS", a:"Switch to low beams 500 feet before meeting another vehicle, and within 200 feet of the vehicle you're following. Use low beams in fog, snow, and heavy rain — high beams reflect back and make it worse.", t:"500 to meet, 200 to follow."},
+    {q:"THE 3-SECOND RULE", a:"Watch the vehicle ahead pass a fixed object. Count 'one-one-thousand, two-one-thousand, three-one-thousand.' If you reach the object before you finish, you're too close.", t:"Three seconds, minimum, always."},
+    {q:"WHEN TO USE 4 SECONDS", a:"Slippery roads, following motorcycles, following trucks or buses that can't see you, when you're being tailgated, when you have a heavy load or trailer, when it's hard to see, and when stopped on a hill.", t:"Bad conditions or big vehicles = add a second."},
+    {q:"SIGNALING", a:"Signal at least 300 feet before you turn, change lanes, or stop. Try to signal at least 3 seconds before you make your move.", t:"300 feet. Every single time."},
+    {q:"CELL PHONES", a:"Handheld cell phone use and texting while driving are illegal in Delaware. You may only use a hands-free device. Drivers with a GDL permit may not use ANY phone — not even hands-free.", t:"Hands-free only. GDL = no phone at all."},
+    {q:"SIGHT DISTANCE", a:"Drive at a speed where you can always stop within the distance you can see. At 50 mph it takes about 400 feet to react and stop — roughly a city block.", t:"If you can't see far enough to stop, you're going too fast."},
+    {q:"BEFORE YOU DRIVE", a:"Adjust your seat (about 12 inches from the steering wheel), adjust your mirrors, clean your glass, secure your load, and make sure nothing can roll under the brake pedal.", t:"Seat, mirrors, glass, load. Then go."}
+  ],
+  quiz:[
+    {q:"When must you turn on your headlights?", c:["Only at night","After sunset/before sunrise, when you can't see 1000 feet, and whenever your wipers are on","Only in the rain","Only on the highway"], a:"After sunset/before sunrise, when you can't see 1000 feet, and whenever your wipers are on", w:"Wipers on = headlights on. That's Delaware law."},
+    {q:"You must dim your high beams within ___ feet of an oncoming vehicle.", c:["100 feet","200 feet","500 feet","1000 feet"], a:"500 feet", w:"500 feet before meeting another vehicle, and 200 feet when following."},
+    {q:"Delaware's seat belt law says:", c:["Only front seat occupants must buckle","All occupants must be properly restrained, and officers can stop you for it","Only the driver must buckle","Seat belts are optional in the back seat"], a:"All occupants must be properly restrained, and officers can stop you for it", w:"It's a primary enforcement law — all occupants, and they can pull you over for it."},
+    {q:"A child who is under 2 years old AND under 30 pounds must:", c:["Use a booster seat","Ride in a rear-facing car seat","Use a seat belt only","Sit in the front seat"], a:"Ride in a rear-facing car seat", w:"Under 2 AND under 30 lbs = rear-facing car seat."},
+    {q:"You must signal at least ___ feet before turning.", c:["50 feet","100 feet","300 feet","500 feet"], a:"300 feet", w:"Signal at least 300 feet before turning, changing lanes, or stopping."},
+    {q:"Handheld cell phone use while driving in Delaware is:", c:["Legal","Illegal — hands-free only","Legal at red lights","Legal for short calls"], a:"Illegal — hands-free only", w:"Handheld use and texting are illegal. GDL drivers can't use hands-free either."},
+    {q:"In normal driving conditions, the minimum following distance is:", c:["1 second","2 seconds","3 seconds","6 seconds"], a:"3 seconds", w:"The three-second rule works at any speed."}
+  ]
+},
+{
+  id:"emergency", title:"Emergencies", emoji:"🆘", color:"#e63946",
+  blurb:"What to do when things go wrong at 55 mph.",
+  cards:[
+    {q:"BRAKE FAILURE", a:"Pump the brake pedal several times — this often builds enough pressure to stop. If that fails, use the parking brake slowly. If that fails, shift to lower gears and find a safe place to stop.", t:"Pump. Parking brake. Downshift. Stop."},
+    {q:"WET BRAKES", a:"After driving through deep water, test your brakes. To dry them: put the car in low gear, drive slowly, and lightly apply the brakes. Test every 200 feet until braking returns to normal.", t:"Low gear, slow, tap the brakes."},
+    {q:"TIRE BLOWOUT", a:"Hold the steering wheel tightly. Keep going straight. Take your foot off the gas and brake lightly. Don't stop on the road — pull off in a safe place.", t:"Grip. Straight. Ease off. Pull off."},
+    {q:"GAS PEDAL STICKS", a:"Keep your eyes on the road. Shift to neutral. Pull off the road when safe. Turn off the engine.", t:"Neutral first. Then off."},
+    {q:"ENGINE DIES", a:"Keep a strong grip on the wheel — steering will be hard but you can still turn. Pull off the roadway. The brakes still work, but you may have to push very hard.", t:"Hard steering, hard brakes. Still works."},
+    {q:"SKIDS", a:"STAY OFF THE BRAKE. Steer in the direction you want the vehicle to go. As it straightens, turn the wheel back the other way. Keep correcting until you're under control.", t:"Look where you want to go. Steer there."},
+    {q:"FIRE", a:"Pull off the road. Use dirt or sand to smother the fire — do NOT use water, because burning gas floats on it and spreads. If it gets out of control, move at least 100 feet away — the gas tank may explode.", t:"No water on a gas fire. Ever."},
+    {q:"STALLED ON RAILROAD TRACKS", a:"Look both ways. If no train is coming, try to restart. If it won't start, or you're not sure, get out and move away. If a train IS coming, run in the general direction the train is coming from, so debris won't hit you.", t:"Run toward the train's direction — sounds wrong, saves your life."},
+    {q:"RUNNING OFF THE PAVEMENT", a:"Don't panic and don't jam the brakes. Take your foot off the accelerator. Grip the wheel tightly. Slow to 15 mph or less before steering back onto the pavement — and check for traffic behind you first.", t:"Slow to 15 before you come back."},
+    {q:"HEADLIGHT FAILURE", a:"Try the headlight switch a few times. If that doesn't work, turn on your emergency flashers, turn signals, or fog lights. Pull off the road as soon as possible.", t:"Flashers on. Get off the road."},
+    {q:"IF YOU'RE IN A CRASH", a:"Stop. Help anyone injured. Call police if there's injury or death, or property damage of $500 or more. Exchange names, addresses, license numbers, and insurance info. Don't move injured people unless they're in immediate danger.", t:"Stop. Help. Report. Exchange."}
+  ],
+  quiz:[
+    {q:"Your brakes stop working. What's the FIRST thing you should do?", c:["Turn off the engine","Pump the brake pedal several times","Shift to neutral","Jump out"], a:"Pump the brake pedal several times", w:"Pumping often builds up enough brake pressure to stop."},
+    {q:"Your gas pedal sticks and the engine keeps revving. You should:", c:["Turn off the engine immediately","Shift to neutral, pull off the road, then turn off the engine","Slam on the brakes","Put it in reverse"], a:"Shift to neutral, pull off the road, then turn off the engine", w:"Neutral first, then get off the road safely before shutting it down."},
+    {q:"Your vehicle starts to skid. You should:", c:["Slam on the brakes","Stay off the brake and steer where you want to go","Turn the wheel sharply the other way","Accelerate"], a:"Stay off the brake and steer where you want to go", w:"Braking during a skid makes it worse. Steer where you want to go."},
+    {q:"Your tire blows out. You should:", c:["Brake hard immediately","Grip the wheel tightly, keep going straight, and slow down gradually","Swerve to the shoulder","Speed up to stabilize"], a:"Grip the wheel tightly, keep going straight, and slow down gradually", w:"Hold tight, keep straight, ease off the gas, brake lightly."},
+    {q:"Your car catches fire. You should NOT:", c:["Pull off the road","Use dirt or sand to smother it","Use water on it","Move at least 100 feet away if it gets out of control"], a:"Use water on it", w:"Burning gas floats on water and spreads the fire. Use dirt or sand."},
+    {q:"Your car stalls on railroad tracks and a train is coming. You should:", c:["Stay in the car and try to restart","Get out and run away in the direction the train is coming from","Get out and run in the same direction the train is moving","Lie down next to the tracks"], a:"Get out and run away in the direction the train is coming from", w:"Running toward the train's direction keeps you out of the debris path."},
+    {q:"You run off the pavement. You should:", c:["Jam on the brakes","Take your foot off the gas and slow to 15 mph or less before returning","Yank the wheel back immediately","Accelerate to get back on"], a:"Take your foot off the gas and slow to 15 mph or less before returning", w:"Don't panic, don't brake hard, slow to 15 mph or less before steering back."}
+  ]
+},
+{
+  id:"gdl", title:"GDL & Points", emoji:"📋", color:"#a78bfa",
+  blurb:"The rules for new drivers — and how points add up.",
+  cards:[
+    {q:"WHO QUALIFIES FOR GDL", a:"Any person at least 16 but under 18, OR under 22 with an active IEP receiving special education services. You need a Delaware Driver Education Certificate (the Blue or White Certificate).", t:"16–17, or under 22 with an IEP."},
+    {q:"THE SPONSOR", a:"A sponsor must sign your application. The sponsor is jointly liable for damages from your negligence and can withdraw their endorsement at any time. Parents come first, then guardians.", t:"The sponsor signs — and can pull the plug."},
+    {q:"SUPERVISING DRIVER", a:"When you must be supervised, the supervisor must be a properly licensed parent, guardian, or approved driver who is at least 25 years old and has held a Class D license for at least 5 years. They must sit in the front passenger seat.", t:"25 years old, 5 years licensed, front seat."},
+    {q:"FIRST 6 MONTHS", a:"You must be supervised at all times. The sponsor must certify you drove 50 hours — 10 of them at night.", t:"50 hours. 10 at night."},
+    {q:"AFTER 6 MONTHS", a:"You may drive unsupervised between 6:00 a.m. and 10:00 p.m. Between 10 p.m. and 6 a.m. you must be supervised — EXCEPT when driving directly to or from church, work, or school activities on school property.", t:"6 a.m. to 10 p.m. on your own."},
+    {q:"PASSENGER RULES", a:"Only the adult supervisor and one other passenger may be in the vehicle during the first 12 months. Immediate family members don't count toward the limit, as long as the supervisor is in the car.", t:"Supervisor + 1 friend. Family doesn't count."},
+    {q:"NO PHONES AT ALL", a:"GDL permit holders may not use a cell phone, texting device, or similar electronic device while driving — not even hands-free.", t:"GDL = zero phone. Not even hands-free."},
+    {q:"IF YOU BREAK THE RULES", a:"Violating Level One permit restrictions is treated as driving without a license: 2-month suspension for the first offense, 4 months for subsequent offenses.", t:"2 months, then 4 months."},
+    {q:"POINTS — SPEEDING", a:"1–9 mph over: 2 points. 10–14 over: 4 points. 15–19 over: 5 points. 20+ over: 5 points (and possible additional action).", t:"1–9 = 2. 10–14 = 4. 15+ = 5."},
+    {q:"POINTS — EVERYTHING ELSE", a:"Passing a stopped school bus: 6. Reckless driving: 6. Aggressive driving: 6. Causing death: 6. Disregarding a stop sign or red light: 3. Other moving violations: 2.", t:"The big ones are all 6. Stop sign = 3."},
+    {q:"WHAT HAPPENS AS POINTS ADD UP", a:"8 points: advisory letter. 12 points: must complete a behavior modification course within 90 days. 14 points: mandatory 4-month suspension. 16: 6 months. 18: 8 months. 20: 10 months. 22: 12 months.", t:"8 letter, 12 class, 14 suspension."},
+    {q:"REINSTATEMENT FEES", a:"$50 to reinstate a suspended license. $200 to reinstate a revoked license.", t:"Suspended = $50. Revoked = $200."}
+  ],
+  quiz:[
+    {q:"During the first 6 months of a Level One Learner's Permit, you must:", c:["Drive only during daylight","Be supervised at all times","Drive only on back roads","Have no passengers ever"], a:"Be supervised at all times", w:"First 6 months: supervised at all times, and 50 hours of certified driving (10 at night)."},
+    {q:"The GDL supervising driver must be at least ___ years old and have held a Class D license for ___ years.", c:["18 and 2","21 and 3","25 and 5","30 and 10"], a:"25 and 5", w:"25 years old with at least 5 years of licensed driving, seated in the front passenger seat."},
+    {q:"How many hours of driving must a GDL permit holder certify?", c:["25 hours","40 hours","50 hours, 10 at night","100 hours"], a:"50 hours, 10 at night", w:"50 hours total, with 10 of those at night."},
+    {q:"After the first 6 months, a Level One permit holder may drive unsupervised:", c:["Any time","Between 6 a.m. and 10 p.m.","Only between 8 a.m. and 6 p.m.","Only on weekends"], a:"Between 6 a.m. and 10 p.m.", w:"6 a.m. to 10 p.m. unsupervised. Outside those hours you must be supervised, with a few exceptions."},
+    {q:"How many points do you get for reckless driving?", c:["2","3","4","6"], a:"6", w:"Reckless driving, aggressive driving, and passing a stopped school bus are all 6 points."},
+    {q:"How many points for disregarding a stop sign or red light?", c:["2","3","4","6"], a:"3", w:"Disregarding a stop sign or red light is 3 points."},
+    {q:"How many points triggers a mandatory 4-month suspension?", c:["8","12","14","20"], a:"14", w:"8 = advisory letter, 12 = course required, 14 = mandatory 4-month suspension."},
+    {q:"You must notify DMV of an address change within:", c:["10 days","30 days","60 days","6 months"], a:"30 days", w:"30 days for both your license and your vehicle registration."},
+    {q:"New Delaware residents must get a Delaware driver license within:", c:["30 days","60 days","90 days","6 months"], a:"60 days", w:"60 days after becoming a bona fide Delaware resident."},
+    {q:"GDL permit holders and cell phones:", c:["Hands-free is allowed","No phone use at all, not even hands-free","Only texting is banned","Phones are allowed at red lights"], a:"No phone use at all, not even hands-free", w:"GDL drivers can't use any cell phone or electronic device while driving."}
+  ]
+}
+];
+
+/* =========================================================================
+   4. STATE
+   ========================================================================= */
+const state = {
+  name:"", answered:0, correct:0, history:[], studied:{}, mistakes:[], streak:0, bestStreak:0
+};
+function save(){ try{ localStorage.setItem("depermit2", JSON.stringify(state)); }catch(e){} }
+function load(){
+  try{ const raw = localStorage.getItem("depermit2"); if(raw) Object.assign(state, JSON.parse(raw)); }catch(e){}
+}
+
+/* =========================================================================
+   5. VOICE
+   ========================================================================= */
+let voiceOn = false;
+function speak(text){
+  if(!("speechSynthesis" in window)) return;
+  try{
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.94; u.pitch = 1; u.volume = 1;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* =========================================================================
+   6. NAVIGATION
+   ========================================================================= */
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  const el = $(id);
+  if(el) el.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function openModal(html){
+  $("modalCard").innerHTML = html;
+  $("modal").classList.add("on");
+}
+function closeModal(){
+  $("modal").classList.remove("on");
+  if("speechSynthesis" in window) window.speechSynthesis.cancel();
+}
+$("modal").addEventListener("click", e=>{ if(e.target === $("modal")) closeModal(); });
+
+/* =========================================================================
+   7. PASS CHANCE
+   ========================================================================= */
+function computeChance(){
+  const total = state.answered;
+  if(total < 5) return {pct:null, msg:"Answer at least 5 questions and I'll start guessing. 🎲"};
+  const recent = state.history.slice(-20);
+  const acc = recent.filter(Boolean).length / recent.length;
+  const coverage = Object.keys(state.studied).length / MODULES.length;
+  const conf = Math.min(1, total/30);
+  let chance = Math.round((acc*0.85 + coverage*0.15) * 100 * conf + 50*(1-conf));
+  chance = Math.max(5, Math.min(99, chance));
+  let msg;
+  if(chance < 60) msg = "😬 Not yet — hit the flashcards, then come back.";
+  else if(chance < 75) msg = "🙂 Getting warmer. Keep drilling the topics you miss.";
+  else if(chance < 88) msg = "💪 Solid! You'd probably squeak by today.";
+  else if(chance < 95) msg = "🔥 Looking good — you'd pass right now.";
+  else msg = "🏆 You're crushing it. Go get that permit!";
+  return {pct:chance, msg:msg};
+}
+function renderMeter(numEl, fillEl, msgEl, countEl){
+  const c = computeChance();
+  if(c.pct === null){ numEl.textContent = "—"; fillEl.style.width = "0%"; }
+  else { numEl.textContent = c.pct + "%"; fillEl.style.width = c.pct + "%"; }
+  if(msgEl) msgEl.textContent = c.msg;
+  if(countEl) countEl.innerHTML = state.answered + " answered<br>" + state.correct + " correct";
+  return c;
+}
+
+/* =========================================================================
+   8. NAME / HOME
+   ========================================================================= */
+$("startBtn").addEventListener("click", startApp);
+$("nameInput").addEventListener("keydown", e=>{ if(e.key === "Enter") startApp(); });
+
+function startApp(){
+  const v = $("nameInput").value.trim();
+  if(!v){
+    $("nameInput").focus();
+    $("nameInput").style.background = "#ffe9ec";
+    setTimeout(()=> $("nameInput").style.background = "#fff", 500);
+    return;
+  }
+  state.name = v; save(); goHome();
+}
+function goHome(){
+  $("whoLabel").textContent = "👋 Hey, " + state.name + "!";
+  renderMeter($("meterNum"), $("meterFill"), $("meterMsg"), $("meterCount"));
+  buildGrid(); updateReviewBtn(); show("scr-home");
+}
+function buildGrid(){
+  const g = $("modGrid"); g.innerHTML = "";
+  MODULES.forEach(m=>{
+    const d = document.createElement("button");
+    d.className = "mod";
+    d.style.borderLeft = "10px solid " + m.color;
+    d.innerHTML = '<div class="ico">'+m.emoji+'</div><div><div class="ttl">'+m.title+'</div><div class="blurb">'+m.blurb+'</div>'+
+      (state.studied[m.id] ? '<span class="done">✓ studied</span>' : '')+'</div>';
+    d.addEventListener("click", ()=> openModule(m.id));
+    g.appendChild(d);
+  });
+}
+function updateReviewBtn(){
+  const b = $("reviewBtn");
+  if(state.mistakes.length === 0){ b.textContent = "🔁 Review Mistakes (none yet!)"; b.style.opacity = ".55"; }
+  else { b.textContent = "🔁 Review Mistakes (" + state.mistakes.length + ")"; b.style.opacity = "1"; }
+}
+
+/* =========================================================================
+   9. FLASHCARDS
+   ========================================================================= */
+let curMod = null, curCard = 0, cardBack = false;
+function modById(id){ return MODULES.find(m=>m.id===id); }
+
+function openModule(id){
+  curMod = modById(id); curCard = 0; cardBack = false;
+  state.studied[id] = true; save();
+  $("modTitle").textContent = curMod.emoji + " " + curMod.title;
+  renderCard(); show("scr-module");
+}
+function renderCard(){
+  const c = curMod.cards[curCard];
+  $("flashTag").textContent = "CARD " + (curCard+1) + " OF " + curMod.cards.length;
+  const el = $("flashEl");
+  if(!cardBack){
+    el.classList.remove("back");
+    $("flashBody").innerHTML = '<div class="flashq">'+esc(c.q)+'</div><div class="tapme">👆 tap the card to reveal</div>';
+  } else {
+    el.classList.add("back");
+    $("flashBody").innerHTML = '<div class="flashq" style="font-size:1.05rem;text-align:left">'+esc(c.q)+'</div>'+
+      '<div class="flasha">'+esc(c.a)+'</div><div class="trick">🧠 Trick: '+esc(c.t)+'</div>';
+    if(voiceOn) speak(c.q + ". " + c.a + ". Trick: " + c.t);
+  }
+  $("modProgress").textContent = "Card " + (curCard+1) + " of " + curMod.cards.length +
+    "  •  " + Object.keys(state.studied).length + " of " + MODULES.length + " topics studied";
+}
+$("flashEl").addEventListener("click", ()=>{ cardBack = !cardBack; renderCard(); });
+$("nextCard").addEventListener("click", ()=>{ curCard = (curCard+1)%curMod.cards.length; cardBack=false; renderCard(); });
+$("prevCard").addEventListener("click", ()=>{ curCard = (curCard-1+curMod.cards.length)%curMod.cards.length; cardBack=false; renderCard(); });
+$("speakCard").addEventListener("click", ()=>{
+  const c = curMod.cards[curCard];
+  speak(cardBack ? (c.q + ". " + c.a + ". Trick: " + c.t) : c.q);
+});
+$("gotIt").addEventListener("click", ()=>{ curCard = (curCard+1)%curMod.cards.length; cardBack=false; renderCard(); });
+$("needIt").addEventListener("click", ()=>{
+  curMod.quiz.forEach(q=>{
+    if(!state.mistakes.some(m=>m.q === q.q)) state.mistakes.push(Object.assign({},q,{modId:curMod.id, modTitle:curMod.title, emoji:curMod.emoji}));
+  });
+  save(); updateReviewBtn();
+  const b = $("needIt"); const old = b.textContent;
+  b.textContent = "✓ Saved!"; setTimeout(()=> b.textContent = old, 800);
+  curCard = (curCard+1)%curMod.cards.length; cardBack=false; renderCard();
+});
+$("modBack").addEventListener("click", goHome);
+$("modQuizBtn").addEventListener("click", ()=>{
+  const qs = curMod.quiz.map(q=> Object.assign({},q,{modId:curMod.id, modTitle:curMod.title, emoji:curMod.emoji}));
+  startQuiz(shuffle(qs), curMod.emoji + " " + curMod.title);
+});
+
+/* =========================================================================
+   10. SIGN LIBRARY
+   ========================================================================= */
+let curCat = "all";
+function openSignLibrary(){
+  $("signsTitle").textContent = "🚸 Sign Library";
+  buildCatBar(); renderSigns(); show("scr-signs");
+}
+function buildCatBar(){
+  const bar = $("catBar"); bar.innerHTML = "";
+  const mk = (id,name,emoji)=>{
+    const c = document.createElement("button");
+    c.className = "chip" + (curCat === id ? " on" : "");
+    c.textContent = emoji + " " + name;
+    c.addEventListener("click", ()=>{ curCat = id; buildCatBar(); renderSigns(); });
+    bar.appendChild(c);
+  };
+  mk("all","All","📚");
+  SIGN_CATS.forEach(c=> mk(c.id, c.name, c.emoji));
+}
+function renderSigns(){
+  const g = $("sigGrid"); g.innerHTML = "";
+  const list = curCat === "all" ? SIGNS : SIGNS.filter(s=>s.cat === curCat);
+  list.forEach(s=>{
+    const d = document.createElement("button");
+    d.className = "sigcard";
+    d.innerHTML = '<div class="sigbox">'+s.svg()+'</div><div class="signame">'+esc(s.name)+'</div>';
+    d.addEventListener("click", ()=> showSign(s));
+    g.appendChild(d);
+  });
+}
+function showSign(s){
+  const cat = SIGN_CATS.find(c=>c.id === s.cat);
+  openModal(
+    '<div class="bigsign">'+s.svg()+'</div>'+
+    '<div class="center"><span class="badge">'+cat.emoji+' '+cat.name+'</span></div>'+
+    '<h2 class="hand center">'+esc(s.name)+'</h2>'+
+    '<p>'+esc(s.meaning)+'</p>'+
+    '<div class="trick">🧠 '+esc(s.trick)+'</div>'+
+    '<div class="row" style="margin-top:14px">'+
+      '<button class="btn tiny blue" id="mSpeak" style="flex:1">🔊 Read aloud</button>'+
+      '<button class="btn tiny ghost" id="mClose" style="flex:1">Close</button>'+
+    '</div>'
+  );
+  $("mSpeak").addEventListener("click", ()=> speak(s.name + ". " + s.meaning + " Trick: " + s.trick));
+  $("mClose").addEventListener("click", closeModal);
+  if($("autoSpeak").checked) speak(s.name + ". " + s.meaning);
+}
+$("signLibBtn").addEventListener("click", openSignLibrary);
+$("signsBack").addEventListener("click", goHome);
+$("signQuizBtn").addEventListener("click", ()=>{
+  // build a sign quiz from the sign library
+  const pool = [
+    {q:"What does this sign mean? — a red octagon with white letters", c:["Stop","Yield","School zone","Do not enter"], a:"Stop", w:"The 8-sided octagon is used only for STOP.", svg:SIGNS.find(x=>x.id==='stop').svg()},
+    {q:"What does this sign mean? — a downward-pointing red and white triangle", c:["Stop","Yield","Warning","No passing"], a:"Yield", w:"The downward triangle means YIELD — slow, look, and yield.", svg:SIGNS.find(x=>x.id==='yield').svg()},
+    {q:"What does this sign mean? — a five-sided yellow-green sign", c:["Railroad","School zone","Yield","Hospital"], a:"School zone", w:"The 5-sided pentagon warns of a school zone or school crossing.", svg:SIGNS.find(x=>x.id==='schoolPenta').svg()},
+    {q:"What does this sign mean? — a round yellow sign with an X and RR", c:["Roundabout","Railroad advance warning","No U-turn","Rest area"], a:"Railroad advance warning", w:"Round yellow with RR warns you that a highway-rail crossing is ahead.", svg:SIGNS.find(x=>x.id==='rrAdvance').svg()},
+    {q:"What does this sign mean? — orange diamond", c:["School zone","Work zone","Recreation area","Railroad"], a:"Work zone", w:"Orange diamonds are work zone signs. Speeding fines are doubled there.", svg:SIGNS.find(x=>x.id==='workZone').svg()},
+    {q:"What does this sign mean? — green rectangle", c:["Warning","Guide / directions","Regulatory","Service"], a:"Guide / directions", w:"Green rectangular signs give directions and destinations.", svg:SIGNS.find(x=>x.id==='guideGreen').svg()},
+    {q:"What does this sign mean? — blue rectangle with a white H", c:["Hotel","Hospital","Highway","Hazard"], a:"Hospital", w:"Blue motorist service signs show gas, food, lodging, and hospitals.", svg:SIGNS.find(x=>x.id==='hospitalSign').svg()},
+    {q:"What does this sign mean? — brown rectangle", c:["Recreation / parks","Construction","Warning","Railroad"], a:"Recreation / parks", w:"Brown signs point to state parks, historic sites, and recreation areas.", svg:SIGNS.find(x=>x.id==='statePark').svg()},
+    {q:"What does this sign mean? — red circle with a white horizontal bar", c:["No parking","Do Not Enter","Stop","Wrong Way"], a:"Do Not Enter", w:"You must not enter. It may be a one-way street the other way.", svg:SIGNS.find(x=>x.id==='doNotEnter').svg()},
+    {q:"What does this sign mean? — a red circle with a slash over a left arrow", c:["Left turn only","No left turn","Keep left","Left lane ends"], a:"No left turn", w:"The slash cancels the movement. No left turns here.", svg:SIGNS.find(x=>x.id==='noLeft').svg()},
+    {q:"What does this sign mean? — a black rectangle with a white arrow", c:["One Way","Do Not Pass","No Parking","Keep Right"], a:"One Way", w:"Traffic flows only in the direction of the arrow.", svg:SIGNS.find(x=>x.id==='oneWay').svg()},
+    {q:"What does this sign mean? — a red, white, and blue shield", c:["U.S. Route","Interstate highway","State route","County road"], a:"Interstate highway", w:"The red-white-blue shield marks an interstate highway.", svg:SIGNS.find(x=>x.id==='interstate').svg()}
+  ];
+  startQuiz(shuffle(pool), "🚸 Sign ID Quiz");
+});
+
+/* =========================================================================
+   11. SCENES
+   ========================================================================= */
+function openScenes(){
+  const list = $("sceneList"); list.innerHTML = "";
+  SCENES.forEach(s=>{
+    const d = document.createElement("div");
+    d.className = "scenecard";
+    d.innerHTML = s.svg() + '<div class="scenetitle">'+s.emoji+' '+esc(s.title)+'</div><div class="sceneblurb">'+esc(s.blurb)+'</div>';
+    d.addEventListener("click", ()=> showScene(s));
+    list.appendChild(d);
+  });
+  show("scr-scenes");
+}
+function showScene(s){
+  openModal(
+    '<h2 class="hand center">'+s.emoji+' '+esc(s.title)+'</h2>'+
+    '<div id="sceneStage" style="margin-bottom:12px">'+s.svg()+'</div>'+
+    '<p>'+esc(s.lesson)+'</p>'+
+    s.points.map(p=>'<div class="keypoint">✔️ '+esc(p)+'</div>').join('')+
+    '<div class="row" style="margin-top:12px">'+
+      '<button class="btn tiny replaybtn" id="sReplay" style="flex:1">▶️ Show me again</button>'+
+      '<button class="btn tiny blue" id="sSpeak" style="flex:1">🔊 Read aloud</button>'+
+    '</div>'+
+    '<button class="btn tiny ghost" id="sClose" style="margin-top:8px">Close</button>'
+  );
+  $("sReplay").addEventListener("click", ()=>{
+    document.querySelectorAll('#sceneStage animate, #sceneStage animateMotion, #sceneStage animateTransform').forEach(a=>{
+      try{ a.beginElement(); }catch(e){}
+    });
+  });
+  $("sSpeak").addEventListener("click", ()=> speak(s.title + ". " + s.lesson));
+  $("sClose").addEventListener("click", closeModal);
+  if($("autoSpeak").checked) speak(s.title + ". " + s.lesson);
+}
+$("sceneBtn").addEventListener("click", openScenes);
+$("scenesBack").addEventListener("click", goHome);
+
+/* =========================================================================
+   12. QUIZ ENGINE
+   ========================================================================= */
+let quizQs = [], quizIdx = 0, quizCorrect = 0, quizLabel = "", answeredThis = false;
+
+function allQuestions(){
+  let out = [];
+  MODULES.forEach(m=> m.quiz.forEach(q=> out.push(Object.assign({},q,{modId:m.id, modTitle:m.title, emoji:m.emoji}))));
+  return out;
+}
+function startQuiz(list, label){
+  if(!list || list.length === 0){ alert("No questions here yet!"); return; }
+  quizQs = list; quizIdx = 0; quizCorrect = 0; quizLabel = label || "Quiz";
+  $("quizLabel").textContent = quizLabel;
+  show("scr-quiz"); renderQuestion();
+}
+function renderQuestion(){
+  answeredThis = false;
+  const q = quizQs[quizIdx];
+  $("qbarfill").style.width = (quizIdx / quizQs.length * 100) + "%";
+  $("streakEl").textContent = "🔥 " + state.streak;
+  $("qtext").textContent = (quizIdx+1) + ". " + q.q;
+  $("feedback").innerHTML = "";
+  $("nextQ").style.display = "none";
+  $("nextQ").textContent = (quizIdx === quizQs.length-1) ? "See results →" : "Next →";
+
+  const box = $("choices"); box.innerHTML = "";
+  if(q.svg){
+    const im = document.createElement("div");
+    im.style.cssText = "width:150px;margin:0 auto 14px";
+    im.innerHTML = q.svg;
+    const sv = im.querySelector("svg");
+    if(sv){ sv.style.width = "100%"; sv.style.height = "auto"; }
+    box.appendChild(im);
+  }
+  shuffle(q.c).forEach(opt=>{
+    const b = document.createElement("button");
+    b.className = "choice"; b.textContent = opt;
+    b.addEventListener("click", ()=> answer(b, opt, q));
+    box.appendChild(b);
+  });
+}
+function answer(btn, chosen, q){
+  if(answeredThis) return;
+  answeredThis = true;
+  const isRight = (chosen === q.a);
+  $("choices").querySelectorAll(".choice").forEach(b=>{
+    if(b.textContent === q.a) b.classList.add("correct");
+    else if(b === btn) b.classList.add("wrong");
+    else b.classList.add("dim");
+    b.style.pointerEvents = "none";
+  });
+  state.answered++;
+  state.history.push(isRight);
+  if(state.history.length > 60) state.history.shift();
+  if(isRight){
+    state.correct++; quizCorrect++; state.streak++;
+    if(state.streak > state.bestStreak) state.bestStreak = state.streak;
+    state.mistakes = state.mistakes.filter(m=> m.q !== q.q);
+  } else {
+    state.streak = 0;
+    if(!state.mistakes.some(m=> m.q === q.q)) state.mistakes.push(q);
+  }
+  save();
+  const fb = $("feedback");
+  fb.className = "feedback " + (isRight ? "good" : "bad");
+  fb.innerHTML = '<div class="fbhead">' + (isRight ? "✅ Yes! " : "❌ Not quite. ") + '</div>'+
+    '<div><b>Correct answer:</b> '+esc(q.a)+'</div>'+
+    '<div class="small" style="margin-top:7px">'+esc(q.w)+'</div>';
+  $("streakEl").textContent = "🔥 " + state.streak;
+  $("nextQ").style.display = "inline-flex";
+  $("qbarfill").style.width = ((quizIdx+1) / quizQs.length * 100) + "%";
+}
+$("nextQ").addEventListener("click", ()=>{
+  quizIdx++;
+  if(quizIdx >= quizQs.length) finishQuiz(); else renderQuestion();
+});
+$("quitQuiz").addEventListener("click", ()=>{ if(confirm("Quit this quiz?")) goHome(); });
+
+function finishQuiz(){
+  const total = quizQs.length;
+  const pct = Math.round(quizCorrect / total * 100);
+  $("resScore").textContent = pct + "%";
+  $("resDetail").textContent = "You got " + quizCorrect + " out of " + total + " correct in " + quizLabel + ".";
+  let title, stamp;
+  if(pct >= 90){ title = "🏆 Outstanding, " + state.name + "!"; stamp = '<span class="stamp good">PASS</span>'; }
+  else if(pct >= 78){ title = "💪 Nice work, " + state.name + "!"; stamp = '<span class="stamp good">PASS</span>'; }
+  else if(pct >= 60){ title = "🙂 Almost there, " + state.name + "."; stamp = '<span class="stamp">KEEP GOING</span>'; }
+  else { title = "😬 Back to the flashcards, " + state.name + "."; stamp = '<span class="stamp">STUDY MORE</span>'; }
+  $("resTitle").textContent = title;
+  $("resStamp").innerHTML = stamp;
+  const c = renderMeter($("resMeterNum"), $("resMeterFill"), $("resMeterMsg"), null);
+  if(state.mistakes.length > 0){
+    $("resReviewBtn").textContent = "📖 Review what I missed (" + state.mistakes.length + ")";
+    $("resReviewBtn").style.display = "inline-flex";
+  } else {
+    $("resReviewBtn").style.display = "none";
+  }
+  save(); show("scr-results");
+}
+
+/* =========================================================================
+   13. BUTTONS
+   ========================================================================= */
+$("quiz10Btn").addEventListener("click", ()=> startQuiz(shuffle(allQuestions()).slice(0,10), "Quick Quiz"));
+$("quiz36Btn").addEventListener("click", ()=> startQuiz(shuffle(allQuestions()).slice(0,36), "Full Practice Test"));
+$("reviewBtn").addEventListener("click", ()=>{
+  if(state.mistakes.length === 0){ alert("No mistakes saved yet! Take a quiz and anything you miss shows up here. 🔁"); return; }
+  startQuiz(shuffle(state.mistakes.slice()), "Mistake Review");
+});
+$("allCardsBtn").addEventListener("click", ()=>{
+  const m = MODULES[Math.floor(Math.random()*MODULES.length)];
+  openModule(m.id);
+});
+$("againBtn").addEventListener("click", ()=> startQuiz(shuffle(quizQs), quizLabel));
+$("resReviewBtn").addEventListener("click", ()=> startQuiz(shuffle(state.mistakes.slice()), "Mistake Review"));
+$("homeBtn").addEventListener("click", goHome);
+$("resetBtn").addEventListener("click", ()=>{
+  if(confirm("Erase all progress and start over?")){
+    state.answered = 0; state.correct = 0; state.history = [];
+    state.studied = {}; state.mistakes = []; state.streak = 0; state.bestStreak = 0; state.name = "";
+    try{ localStorage.removeItem("depermit2"); }catch(e){}
+    $("nameInput").value = "";
+    show("scr-name");
+  }
+});
+$("autoSpeak").addEventListener("change", e=>{ voiceOn = e.target.checked; if(!voiceOn && "speechSynthesis" in window) window.speechSynthesis.cancel(); });
+
+/* =========================================================================
+   14. BOOT
+   ========================================================================= */
+load();
+if(state.name){ $("nameInput").value = state.name; $("startBtn").textContent = "Continue as " + state.name + " 🚀"; }
+</script>
+</body>
+</html>
